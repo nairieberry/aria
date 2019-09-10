@@ -6,15 +6,15 @@ import configureStore from './store/store';
 document.addEventListener('DOMContentLoaded', () => {
     let store;
 
-    if (window.currentUser) {
+    if (window.user) {
         const preloadedState = {
-            session: {id: window.currentUser.id},
+            session: {id: window.user.id},
             entities: {
-                users: {[window.currentUser.id]: window.currentUser}
+                users: {[window.user.id]: window.user}
             }
         };
         store = configureStore(preloadedState);
-        delete window.currentUser;
+        delete window.user;
     } else {
         store = configureStore();
     }

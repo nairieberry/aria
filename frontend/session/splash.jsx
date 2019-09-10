@@ -3,12 +3,13 @@ import {Link} from 'react-router-dom';
 
 const Splash = ({currentUser, logout}) => {
     // if not signed in, display sign in / sign up buttons
-    const sessionLinks = () => {
+    const sessionLinks = () => (
         <nav className="login-signup">
             <Link to="/login">Login</Link>
+            <br/>
             <Link to="/signup">Sign Up</Link>
         </nav>
-    };
+    );
 
     // if signed in, display name and log out button
     const sessionLinked = () => (
@@ -19,6 +20,11 @@ const Splash = ({currentUser, logout}) => {
     )
 
     return currentUser ? sessionLinked() : sessionLinks();
+    // return currentUser ? "logged in" : "logged out";
 };
+
+// const Splash = () => (
+//     <h1>this is splash.jsx</h1>
+// )
 
 export default Splash;
