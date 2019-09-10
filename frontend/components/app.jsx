@@ -1,10 +1,10 @@
 import React from 'react';
-import SignupContainer from './';
 import {Route} from 'react-router-dom';
+
+import SignupContainer from '../session/signup_container';
 
 export default () => {
     <div>
-        <Route path="/" component={Splash} />
-        <Route exact path="/signup" component={SignupContainer} />
+        <Route path="/signup" component={SignupContainer} />
     </div>
 };
