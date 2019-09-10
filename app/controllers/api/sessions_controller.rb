@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
         @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
         if @user
             login(@user)
-            render 'api/users/'
+            render 'api/users/show'
         else
             render json: ["Wrong credentials or account doesn't exist"], status: 401
         end
@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
 
     def destroy
         logout
-        render 'api/users/'
+        render 'api/users/show'
     end
 
 end
