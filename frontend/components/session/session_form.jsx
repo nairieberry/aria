@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
             <div className="session-form">
                 {/* {this.props.formType} or
                 &nbsp;
-                {this.props.navLink} */}
+            {this.props.navLink} */}
                 <form>
                     <label>Username:
                         <input type="text"
@@ -43,6 +43,7 @@ class SessionForm extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
+            <img class="background" src="assets/bg.jpg"></img>
             </div>
         )
     }

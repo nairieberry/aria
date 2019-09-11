@@ -429,7 +429,10 @@ function (_React$Component) {
         onChange: this.handleInput('password')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
-      }, this.props.formType)));
+      }, this.props.formType)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        "class": "background",
+        src: "assets/bg.jpg"
+      }));
     }
   }]);
 
