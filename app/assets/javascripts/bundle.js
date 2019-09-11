@@ -430,7 +430,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
       }, this.props.formType)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        "class": "background",
+        className: "background",
         src: "assets/bg.jpg"
       }));
     }

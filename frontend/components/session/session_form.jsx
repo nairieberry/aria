@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
-            <img class="background" src="assets/bg.jpg"></img>
+            <img className="background" src="assets/bg.jpg"></img>
             </div>
         )
     }
