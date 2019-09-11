@@ -7,7 +7,6 @@ import App from './app';
 const Root = ({store}) => (
     <Provider store={store}>
         <HashRouter>
-            "this is root.jsx"
             <App />
         </HashRouter>
     </Provider>

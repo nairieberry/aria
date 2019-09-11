@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 const Splash = ({user, logout}) => {
     // if not signed in, display sign in / sign up buttons
     const notloggedin = () => (
-        <nav className="login-signup">
+        <div className="splash">
             <Link to="/login">Login</Link>
             &nbsp;
-            <Link to="/signup">Sign Up</Link>
-        </nav>
+            <Link to="/register">Register</Link>
+        </div>
     );
 
     // if signed in, display name and log out button
