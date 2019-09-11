@@ -18,13 +18,16 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createNewUser(this.state)
+        this.props.action(this.state)
+        .then(() => this.props.history.push("/login"));
     }
 
     render () {
         return (
             <div className="session-form">
-                <h2>Sign Up</h2>
+                {/* {this.props.formType} or
+                &nbsp;
+                {this.props.navLink} */}
                 <form>
                     <label>Username:
                         <input type="text"
@@ -38,7 +41,7 @@ class SessionForm extends React.Component {
                         value={this.state.password}
                         onChange={this.handleInput('password')} />
                     </label>
-                    <button onClick={this.handleSubmit}>Sign Up</button>
+                    <button onClick={this.handleSubmit}>{this.props.formType}</button>
                 </form>
             </div>
         )

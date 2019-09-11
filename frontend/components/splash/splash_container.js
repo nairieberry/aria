@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
-import {logout} from '../actions/session';
+import {logout} from '../../actions/session';
 
 import Splash from './splash';
 
 const mapStateToProps = state => ({
-    currentUser: state.session.currentUser,
+    user: state.session.currentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
