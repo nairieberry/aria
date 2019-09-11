@@ -201,9 +201,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/splash/splash_container */ "./frontend/components/splash/splash_container.js");
-/* harmony import */ var _components_session_signup_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/session/signup_container */ "./frontend/components/session/signup_container.js");
-/* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
+/* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
+/* harmony import */ var _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/splash/splash_container */ "./frontend/components/splash/splash_container.js");
+/* harmony import */ var _components_session_signup_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/session/signup_container */ "./frontend/components/session/signup_container.js");
+/* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
+
 
 
 
@@ -212,13 +214,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/",
-    component: _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     path: "/signup",
-    component: _components_session_signup_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _components_session_signup_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     path: "/login",
-    component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }));
 });
 
@@ -365,7 +367,7 @@ function (_React$Component) {
 
       e.preventDefault();
       this.props.action(this.state).then(function () {
-        return _this3.props.history.push("/login");
+        return _this3.props.history.push("/");
       });
     }
   }, {
@@ -458,7 +460,7 @@ var Splash = function Splash(_ref) {
       logout = _ref.logout;
 
   // if not signed in, display sign in / sign up buttons
-  var sessionLinks = function sessionLinks() {
+  var notloggedin = function notloggedin() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "login-signup"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -469,18 +471,18 @@ var Splash = function Splash(_ref) {
   }; // if signed in, display name and log out button
 
 
-  var sessionLinked = function sessionLinked() {
+  var loggedin = function loggedin() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "header-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
       className: "header-name"
-    }, "Hi, ", user.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    }, "Logged in as: ", user.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "header-button",
       onClick: logout
     }, "Log Out"));
   };
 
-  return user ? sessionLinked() : sessionLinks(); // return user ? "logged in" : "logged out";
+  return user ? loggedin() : notloggedin(); // return user ? "logged in" : "logged out";
 }; // const Splash = () => (
 //     <h1>this is splash.jsx</h1>
 // )
@@ -508,7 +510,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: state.session.currentUser
+    user: state.session.user
   };
 };
 
@@ -558,7 +560,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session */ "./frontend/actions/session.js");
 
 var _nullSession = {
-  currentUser: null
+  user: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullSession;
@@ -568,7 +570,7 @@ var _nullSession = {
   switch (action.type) {
     case _actions_session__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, {
-        currentUser: action.user
+        user: action.user
       });
 
     case _actions_session__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
@@ -639,6 +641,64 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/utils/route_utils.jsx":
+/*!****************************************!*\
+  !*** ./frontend/utils/route_utils.jsx ***!
+  \****************************************/
+/*! exports provided: AuthRoute, ProtectedRoute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRoute", function() { return AuthRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProtectedRoute", function() { return ProtectedRoute; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    loggedIn: Boolean(state.session.user)
+  };
+};
+
+var Auth = function Auth(_ref) {
+  var loggedIn = _ref.loggedIn,
+      path = _ref.path,
+      Component = _ref.component;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/"
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props);
+    }
+  });
+};
+
+var Protected = function Protected(_ref2) {
+  var loggedIn = _ref2.loggedIn,
+      path = _ref2.path,
+      Component = _ref2.component;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    render: function render(props) {
+      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/"
+      });
+    }
+  });
+};
+
+var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
+var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
 
 /***/ }),
 

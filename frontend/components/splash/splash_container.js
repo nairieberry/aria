@@ -4,7 +4,7 @@ import {logout} from '../../actions/session';
 import Splash from './splash';
 
 const mapStateToProps = state => ({
-    user: state.session.currentUser,
+    user: state.session.user,
 });
 
 const mapDispatchToProps = dispatch => ({

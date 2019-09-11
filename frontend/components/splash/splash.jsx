@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const Splash = ({user, logout}) => {
     // if not signed in, display sign in / sign up buttons
-    const sessionLinks = () => (
+    const notloggedin = () => (
         <nav className="login-signup">
             <Link to="/login">Login</Link>
             &nbsp;
@@ -12,14 +12,14 @@ const Splash = ({user, logout}) => {
     );
 
     // if signed in, display name and log out button
-    const sessionLinked = () => (
+    const loggedin = () => (
         <div className="header-group">
-        <h2 className="header-name">Hi, {user.username}!</h2>
+        <h2 className="header-name">Logged in as: {user.username}!</h2>
         <button className="header-button" onClick={logout}>Log Out</button>
         </div>
     )
 
-    return user ? sessionLinked() : sessionLinks();
+    return user ? loggedin() : notloggedin();
     // return user ? "logged in" : "logged out";
 };
 
