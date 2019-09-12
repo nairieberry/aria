@@ -1,0 +1,2 @@
+class UserServer < ApplicationRecord
+end
