@@ -9,36 +9,39 @@ class Api::ServersController < ApplicationController
     end
 
     def create
-        fix this
         @server = Server.new(server_params)
-        @server.user_id = current_user.id
+        @server.owner_id = current_user.id
         if @server.save
-            render
+            render :show
         else
-            render
+            render json: @server.errors.full_messages, status: 422
         end
     end
 
-    def new
-        @server = Server.new
-    end
+    # you don't need new and edit when you're doing a react project
+
+    # def new
+    #     @server = Server.new
+    # end
     
-    def edit
-        @server = current_user.servers.find(params[:id])
-    end
+    # def edit
+    #     @server = current_user.servers.find(params[:id])
+    # end
 
     def update
         @server = current_user.servers.find(params[:id])
         @server.user_id = current_user.id
         if @server.update(server_params)
-            render
+            render :show
         else
-            render
+            render json: @server.errors.full_messages, status: 422
         end
     end
 
     def delete
-        fix this
+        @server = current_user.servers.find(params[:id])
+        @server.destroy!
+        render :show
     end
 
     def server_params

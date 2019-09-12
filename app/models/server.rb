@@ -14,5 +14,12 @@ class Server < ApplicationRecord
     validates :server_name, :owner_id, presence: true
     validates :server_name, uniqueness: true
 
-    belongs_to :user
+    belongs_to :owner,
+        class_name: :User
+
+    has_many :user_servers
+
+    has_many :users,
+        through: :user_servers,
+        source: :user
 end

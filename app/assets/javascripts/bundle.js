@@ -164,6 +164,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  // debugger
   var store;
 
   if (window.user) {
@@ -212,7 +213,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
     component: _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -222,7 +223,7 @@ __webpack_require__.r(__webpack_exports__);
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     path: "/login",
     component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }));
+  })));
 });
 
 /***/ }),
@@ -411,12 +412,8 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
-
       e.preventDefault();
-      this.props.action(this.state).then(function () {
-        return _this3.props.history.push("/");
-      });
+      this.props.action(this.state); // .then(() => this.props.history.push("/"));
     } // renderHeader() {
     //     if (this.props.buttonText === "Login")
     //         return <div className="">hi</div>
