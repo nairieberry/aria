@@ -6,7 +6,8 @@ import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => {
     return {
-        formType: 'Register',
+        banner: 'Create an account',
+        buttonText: 'Continue',
         navLink: <Link to="/login">Already have an account?</Link>
     };
 };

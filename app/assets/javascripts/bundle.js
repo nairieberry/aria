@@ -281,10 +281,12 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
-    formType: 'Login',
+    banner: 'Welcome back!',
+    banner2: "We're so excited to see you again!",
+    buttonText: 'Login',
     navLink: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/register"
-    }, "Register instead")
+    }, "Need an account? Register")
   };
 };
 
@@ -324,7 +326,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(_ref) {
   var errors = _ref.errors;
   return {
-    formType: 'Register',
+    banner: 'Create an account',
+    buttonText: 'Continue',
     navLink: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/login"
     }, "Already have an account?")
@@ -391,7 +394,8 @@ function (_React$Component) {
       username: '',
       password: ''
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.renderHeader = this.renderHeader.bind(this);
+
     return _this;
   }
 
@@ -413,13 +417,21 @@ function (_React$Component) {
       this.props.action(this.state).then(function () {
         return _this3.props.history.push("/");
       });
-    }
+    } // renderHeader() {
+    //     if (this.props.buttonText === "Login")
+    //         return <div className="">hi</div>
+    // }
+
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form-text"
+      }, this.props.banner, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), this.props.banner2, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         onChange: this.handleInput('username')
@@ -427,12 +439,9 @@ function (_React$Component) {
         type: "password",
         value: this.state.password,
         onChange: this.handleInput('password')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
-      }, this.props.formType)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "background",
-        src: "assets/bg.jpg"
-      }));
+      }, this.props.buttonText)), this.props.navLink)));
     }
   }]);
 
@@ -466,7 +475,7 @@ var Splash = function Splash(_ref) {
   // if not signed in, display sign in / sign up buttons
   var notloggedin = function notloggedin() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "splash"
+      className: "splash-login-register"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/login"
     }, "Login"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -477,11 +486,11 @@ var Splash = function Splash(_ref) {
 
   var loggedin = function loggedin() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "header-group"
+      className: "splash-logged-in"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-      className: "header-name"
+      className: "splash-logged-in-as"
     }, "Logged in as: ", user.username, "!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "header-button",
+      className: "splash-logged-in-logout",
       onClick: logout
     }, "Log Out"));
   };
