@@ -494,16 +494,22 @@ var Splash = function Splash(_ref) {
   var notloggedin = function notloggedin() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "splash"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "splash-box"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "splash-login-link",
       to: "/login"
-    }, "Login"), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-      to: "/register"
-    }, "Register"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "splash-intro"
     }, "It's time to ditch Skype and Teamspeak."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "splash-intro2"
-    }, "All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone. Stop paying for Teamspeak servers and hassling with Skype. Simplify your life."));
+    }, "All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone. Stop paying for Teamspeak servers and hassling with Skype. Simplify your life."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "splash-green-button",
+      to: "/login"
+    }, "Green button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "splash-blue-button",
+      to: "/login"
+    }, "Blue button")));
   }; // if signed in, display name and log out button
 
 

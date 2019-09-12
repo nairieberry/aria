@@ -1,10 +1,34 @@
 .splash {
     color: #fff;
-    background-color: pink;
+    background-color: #26262B;
+    height: 100vh;
+    width: 100vw;
+}
+
+.splash-box {
+    padding: 20px;
 }
 
 .splash-login-link {
     font-size: 20px;
+    float: right;
 }
 
-// #4f545c is the all-in-one voice... text color
+.splash-intro {
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.splash-intro2 {
+    color: hsla(0, 0%, 100%, 0.6);
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 17px;
+}
+
