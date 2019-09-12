@@ -53,19 +53,23 @@
     width: 96%;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    // box-sizing: border-box;
 }
 
 .session-form-button {
     color: #fff;
     background-color: #7289da;
     font-size: 16px;
-    width: 400px;
-    height: 34px;
+    // width: 400px;
+    height: 44px;
     text-align: center;
     border-radius: 3px;
-    padding-top: 14px;
+    // padding-top: 14px;
     margin-bottom: 8px;
-    margin-top: 8px;
+    margin-top: 30px;
+    line-height: 44px;
+    margin-left: 100px;
+    width: 100%;
 }
 
 .session-form-minibox {
