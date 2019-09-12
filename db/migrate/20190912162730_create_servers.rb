@@ -6,7 +6,7 @@ class CreateServers < ActiveRecord::Migration[5.2]
       t.integer :owner_id, null: false
       t.timestamps
     end
-    add_index :servers, :servername, unique: true
+    add_index :servers, :server_name, unique: true
     add_index :servers, :owner_id
   end
 end
