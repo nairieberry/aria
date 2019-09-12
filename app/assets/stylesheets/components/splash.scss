@@ -1,84 +1,10 @@
-.session-form {
-    font-family: $font;
+.splash {
+    color: #fff;
+    background-color: pink;
+}
+
+.splash-login-link {
     font-size: 20px;
-    background-image: url(bg.jpg);
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.session-form-box {
-    // height: 480px;
-    height: 300px;
-    width: 492px;
-    background: $black;
-    color: $gray;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    border-radius: 5px;
-}
-
-// .session-form-text {
-//     height: 400px;
-//     width: 344px;
-//     background: white;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-.session-form-title {
-    font-size: 26px;
-    color: #fff;
-    text-align: center;
-    font-weight: 300;
-}
-
-.session-form-username {
-    color: #8e9297;
-    // color: #fff;
-    font-size: 13px;
-    line-height: 16px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.session-form-username-box {
-    font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    height: 30px;
-    width: 96%;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.session-form-button {
-    color: #fff;
-    background-color: #7289da;
-    font-size: 16px;
-    width: 400px;
-    height: 34px;
-    text-align: center;
-    border-radius: 3px;
-    padding-top: 14px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-}
-
-.session-form-minibox {
-    margin-bottom: 8px;
-    margin-top: 8px;
-}
-
-.session-form-navlink {
-    color: #7289da;
-    font-size: 14px;
-}
-
-.session-form-title2 {
-    color: #72767d;
-    font-size: 18px;
-}
+// #4f545c is the all-in-one voice... text color
