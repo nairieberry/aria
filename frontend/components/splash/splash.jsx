@@ -13,8 +13,12 @@ const Splash = ({user, logout}) => {
                 <div className="splash-intro">It's time to ditch Skype and Teamspeak.</div>
                 <div className="splash-intro2">All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone. Stop paying for Teamspeak servers and hassling with Skype. Simplify your life.</div>
 
-                <Link className="splash-green-button" to="/login">Green button</Link>
-                <Link className="splash-blue-button" to="/login">Blue button</Link>
+                <div className="splash-green-button-box">
+                    <Link className="splash-button" to="/login">Green button</Link>
+                </div>
+                <div className="splash-blue-button-box">
+                <Link className="splash-button" to="/login">Blue button</Link>
+                </div>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 .splash {
-    color: #fff;
     background-color: #26262B;
+    font-family: $font;
+    color: #fff;
     height: 100vh;
     width: 100vw;
 }
@@ -15,7 +16,7 @@
 }
 
 .splash-intro {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 36px;
     line-height: 44px;
     text-align: center;
@@ -28,7 +29,22 @@
     margin-left: 40px;
     margin-right: 40px;
     text-align: center;
-    font-weight: 500;
-    font-size: 17px;
+    font-weight: 349;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
+.splash-green-button-box {
+    background-color: #43b581;
+    margin-bottom: 20px;
+}
+
+.splash-blue-button-box {
+    background-color: #7289da;
+    margin-bottom: 20px;
+}
+
+.splash-button {
+    font-size: 15px;
+    font-weight: 500;
+}
