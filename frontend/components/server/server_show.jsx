@@ -5,15 +5,17 @@ class ServerShow extends React.Component {
 
     componentDidMount() {
         // debugger
-        let serverId = this.props.match.params.serverId
-        this.props.showServer(serverId)
+        this.props.show(this.props.serverId)
     };
 
     render () {
+        const {server} = this.props;
+        // looks for a key in this.props called server and assigns its value to a variable called server
         // debugger
+        if (!server) return null;
         return (
             <div>
-                {this.props.server.serverId}
+                {server.id}
             </div>
         )
     }

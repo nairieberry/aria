@@ -8,9 +8,12 @@ import ServerShow from './server_show';
 const mapStateToProps = (state, ownProps) => {
     let serverId = ownProps.match.params.serverId;
     // debugger
-    return{
-        server: state.entities.servers[serverId]
-    };
+    return({
+        server: state.entities.servers[serverId],
+        // this grabs the server out of state
+        serverId,
+        // makes the let serverId into a variable called serverId
+    });
 };
 
 const mapDispatchToProps = dispatch => {

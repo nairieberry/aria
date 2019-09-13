@@ -408,7 +408,7 @@ function (_React$Component) {
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             key: server.id,
             to: "/channels/".concat(server.id)
-          }, server.server_name)
+          }, server.server_name.slice(0, 2).toUpperCase())
         );
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -521,14 +521,16 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // debugger
-      var serverId = this.props.match.params.serverId;
-      this.props.showServer(serverId);
+      this.props.show(this.props.serverId);
     }
   }, {
     key: "render",
     value: function render() {
+      var server = this.props.server; // looks for a key in this.props called server and assigns its value to a variable called server
       // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.server.serverId);
+
+      if (!server) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, server.id);
     }
   }]);
 
@@ -565,7 +567,10 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var serverId = ownProps.match.params.serverId; // debugger
 
   return {
-    server: state.entities.servers[serverId]
+    server: state.entities.servers[serverId],
+    // this grabs the server out of state
+    serverId: serverId // makes the let serverId into a variable called serverId
+
   };
 };
 
