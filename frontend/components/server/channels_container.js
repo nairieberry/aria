@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import {showServer, newServer, editServer}
+import {showServer, newServer, editServer} from '../../actions/server';
+import ServerForm from './server_form';
 
 const mapStateToProps = ({ errors }) => {
     return {
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
 // do I need these functions here? if so, which ones and why?
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(server.jsx file here?);
+export default connect(mapStateToProps, mapDispatchToProps)(ServerForm);
