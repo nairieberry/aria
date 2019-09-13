@@ -13,7 +13,6 @@ export const fetchServer = (id) => (
 );
 
 export const createServer = (server) => {
-        server.channels = Object.keys(server.channels).map(key => server.channels[key]);
 
         return $.ajax({
             method: 'POST',
@@ -23,7 +22,7 @@ export const createServer = (server) => {
 };
 
 export const updateServer = (server) => {
-    server.channels = Object.keys(server.channels).map(key => server.channels[key]);
+    // server.channels = Object.keys(server.channels).map(key => server.channels[key]);
 
     return $.ajax({
         method: 'PATCH',

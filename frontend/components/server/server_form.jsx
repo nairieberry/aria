@@ -30,6 +30,7 @@ class ServerForm extends React.Component {
         return (
             <div className="server-form">
             "I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible"
+            &nbsp;
                 {/* <div>
                     {servers}
                 </div> */}

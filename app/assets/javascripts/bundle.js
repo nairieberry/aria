@@ -222,7 +222,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _utils_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/server */ "./frontend/utils/server.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -252,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
     store: store
   }), root);
 });
+window.utils = _utils_server__WEBPACK_IMPORTED_MODULE_4__;
 
 /***/ }),
 
@@ -453,7 +456,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-form"
-      }, "\"I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible\"", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "\"I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible\" \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, "link to splash page"));
     }
@@ -1042,9 +1045,6 @@ var fetchServer = function fetchServer(id) {
   });
 };
 var createServer = function createServer(server) {
-  server.channels = Object.keys(server.channels).map(function (key) {
-    return server.channels[key];
-  });
   return $.ajax({
     method: 'POST',
     url: 'api/servers',
@@ -1054,9 +1054,7 @@ var createServer = function createServer(server) {
   });
 };
 var updateServer = function updateServer(server) {
-  server.channels = Object.keys(server.channels).map(function (key) {
-    return server.channels[key];
-  });
+  // server.channels = Object.keys(server.channels).map(key => server.channels[key]);
   return $.ajax({
     method: 'PATCH',
     url: "api/servers/".concat(id),
