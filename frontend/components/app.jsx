@@ -11,14 +11,12 @@ import ServerShowContainer from '../components/server/server_show_container';
 
 export default () => (
     <div>
+        <Route path="/channels" component={ServerIndexContainer} />
         <Switch>
         <Route exact path="/" component={Splash} />
         <AuthRoute path="/register" component={RegisterContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <Route exact path="/channels" component={ServerIndexContainer} />
-
         <Route path="/channels/:serverId" component={ServerShowContainer} />
-
         </Switch>
     </div>
 );
