@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import * as utils from './utils/server';
+
+// testing
+// import * as utils from './utils/server';
+import * as actions from './actions/server';
 
 document.addEventListener('DOMContentLoaded', () => {
     // debugger
@@ -21,8 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
+// testing after store and before render
+window.store = store;
+window.dispatch = store.dispatch;
+
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root);
 });
 
-window.utils = utils
+// testing
+// window.utils = utils
+window.actions = actions

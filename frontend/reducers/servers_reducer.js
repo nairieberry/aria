@@ -8,7 +8,9 @@ const serversReducer = (state = {}, action) => {
         case RECEIVE_ALL_SERVERS:
             return action.servers
         case RECEIVE_CURRENT_SERVER:
-            newState = merge({}, state, {[action.server.id]: action.server})
+            // const newState = merge({}, state, {[action.server.id]: action.server})
+            const newState = merge({}, state, action.server)
+            return newState;
         default:
             return state;
     }

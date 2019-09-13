@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {register} from '../../actions/session';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state) => {
     return {
         banner: 'Create an account',
         buttonText: 'Continue',

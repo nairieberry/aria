@@ -115,7 +115,7 @@ var receiveAllServers = function receiveAllServers(servers) {
 
 var receiveCurrentServer = function receiveCurrentServer(server) {
   return {
-    type: RECEIVE_SERVER,
+    type: RECEIVE_CURRENT_SERVER,
     server: server
   };
 };
@@ -222,12 +222,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _utils_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils/server */ "./frontend/utils/server.js");
+/* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/server */ "./frontend/actions/server.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+ // testing
+// import * as utils from './utils/server';
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -247,14 +249,19 @@ document.addEventListener('DOMContentLoaded', function () {
     delete window.user;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  }
+  } // testing after store and before render
 
+
+  window.store = store;
+  window.dispatch = store.dispatch;
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), root);
-});
-window.utils = _utils_server__WEBPACK_IMPORTED_MODULE_4__;
+}); // testing
+// window.utils = utils
+
+window.actions = _actions_server__WEBPACK_IMPORTED_MODULE_4__;
 
 /***/ }),
 
@@ -352,7 +359,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state, errors) {
+var mapStateToProps = function mapStateToProps(state) {
   // let servers = Object.values(state.servers)
   return {// servers: servers,
     // errors: errors
@@ -491,8 +498,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var errors = _ref.errors;
+var mapStateToProps = function mapStateToProps(state) {
   return {
     banner: 'Welcome back!',
     banner2: "We're so excited to see you again!",
@@ -536,8 +542,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var errors = _ref.errors;
+var mapStateToProps = function mapStateToProps(state) {
   return {
     banner: 'Create an account',
     buttonText: 'Continue',
@@ -839,8 +844,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/server */ "./frontend/actions/server.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -854,7 +857,9 @@ var serversReducer = function serversReducer() {
       return action.servers;
 
     case _actions_server__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_SERVER"]:
-      newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.server.id, action.server));
+      // const newState = merge({}, state, {[action.server.id]: action.server})
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.server);
+      return newState;
 
     default:
       return state;

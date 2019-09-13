@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {showServer, newServer, editServer} from '../../actions/server';
 import ServerForm from './server_form';
 
-const mapStateToProps = (state, errors) => {
+const mapStateToProps = (state) => {
     // let servers = Object.values(state.servers)
     return{
         // servers: servers,

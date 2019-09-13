@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {login} from '../../actions/session';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state) => {
     return {
         banner: 'Welcome back!',
         banner2: "We're so excited to see you again!",
