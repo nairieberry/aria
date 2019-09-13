@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class ServerIndex extends React.Component {
     // constructor(props) {
@@ -16,7 +17,8 @@ class ServerIndex extends React.Component {
     render () {
 
         let servers = this.props.servers.map(server => (
-            <div key="{server.id}">{server.server_name}</div>
+            // <div key="{server.id}">{server.server_name}</div>
+            <Link to={`/channels/${server.id}`}>{server.server_name}</Link>
         ))
 
         return (
