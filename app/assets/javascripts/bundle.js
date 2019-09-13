@@ -350,12 +350,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, errors) {
-  var servers = Object.values(state.servers);
-  return {
-    servers: servers,
-    errors: errors // do I need text here when I can just manually put in whatever into the jsx?
+  // let servers = Object.values(state.servers)
+  return {// servers: servers,
+    // errors: errors
+    // do I need text here when I can just manually put in whatever into the jsx?
     // why am I feeding in errors?
-
   };
 };
 
@@ -454,7 +453,9 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-form"
-      }, "\"I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible\"");
+      }, "\"I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible\"", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/"
+      }, "link to splash page"));
     }
   }]);
 

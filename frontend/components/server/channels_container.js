@@ -6,10 +6,10 @@ import {showServer, newServer, editServer} from '../../actions/server';
 import ServerForm from './server_form';
 
 const mapStateToProps = (state, errors) => {
-    let servers = Object.values(state.servers)
+    // let servers = Object.values(state.servers)
     return{
-        servers: servers,
-        errors: errors
+        // servers: servers,
+        // errors: errors
 // do I need text here when I can just manually put in whatever into the jsx?
 // why am I feeding in errors?
     };

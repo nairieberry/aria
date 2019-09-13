@@ -33,7 +33,7 @@ class ServerForm extends React.Component {
                 {/* <div>
                     {servers}
                 </div> */}
-                {/* <Link to='/' /> */}
+                <Link to='/'>link to splash page</Link>
             </div>
         )
     }
