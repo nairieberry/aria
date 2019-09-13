@@ -6,8 +6,8 @@ import {showServer} from '../../actions/server';
 import ServerShow from './server_show';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     let serverId = ownProps.match.params.serverId;
+    // debugger
     return{
         server: state.entities.servers[serverId]
     };

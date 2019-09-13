@@ -519,12 +519,16 @@ function (_React$Component) {
 
   _createClass(ServerShow, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      // debugger
+      var serverId = this.props.match.params.serverId;
+      this.props.showServer(serverId);
+    }
   }, {
     key: "render",
     value: function render() {
       // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hi");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.server.serverId);
     }
   }]);
 
@@ -558,8 +562,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  debugger;
-  var serverId = ownProps.match.params.serverId;
+  var serverId = ownProps.match.params.serverId; // debugger
+
   return {
     server: state.entities.servers[serverId]
   };
