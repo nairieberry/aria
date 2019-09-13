@@ -2,24 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import {showServer, newServer, editServer} from '../../actions/server';
-import ServerForm from './server_form';
+import {serverIndex, showServer, newServer, editServer} from '../../actions/server';
+import ServerIndex from './server_index';
 
 const mapStateToProps = (state) => {
-    // let servers = Object.values(state.servers)
+    // debugger
+    // gives you an array of all the servers because servers are listed under their id as a key
+    let servers = Object.values(state.entities.servers)
     return{
-        // servers: servers,
-        // errors: errors
-// do I need text here when I can just manually put in whatever into the jsx?
-// why am I feeding in errors?
+        // now you're putting them into props
+        // props key - state value
+        servers: servers,
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    show: id => dispatch(showServer(id)),
-    new: server => dispatch(newServer(server)),
-    edit: server => dispatch(editServer(server)),
-// do I need these functions here? which ones and why?
+    index: () => dispatch(serverIndex()),
+    // you only need the index function for the index page
+    // show: id => dispatch(showServer(id)),
+    // new: server => dispatch(newServer(server)),
+    // edit: server => dispatch(editServer(server)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ServerIndex);

@@ -352,7 +352,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/server */ "./frontend/actions/server.js");
-/* harmony import */ var _server_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./server_form */ "./frontend/components/server/server_form.jsx");
+/* harmony import */ var _server_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./server_index */ "./frontend/components/server/server_index.jsx");
 
 
 
@@ -360,37 +360,36 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  // let servers = Object.values(state.servers)
-  return {// servers: servers,
-    // errors: errors
-    // do I need text here when I can just manually put in whatever into the jsx?
-    // why am I feeding in errors?
+  // debugger
+  // gives you an array of all the servers because servers are listed under their id as a key
+  var servers = Object.values(state.entities.servers);
+  return {
+    // now you're putting them into props
+    // props key - state value
+    servers: servers
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    show: function show(id) {
-      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["showServer"])(id));
-    },
-    "new": function _new(server) {
-      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["newServer"])(server));
-    },
-    edit: function edit(server) {
-      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["editServer"])(server));
-    } // do I need these functions here? which ones and why?
+    index: function index() {
+      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["serverIndex"])());
+    } // you only need the index function for the index page
+    // show: id => dispatch(showServer(id)),
+    // new: server => dispatch(newServer(server)),
+    // edit: server => dispatch(editServer(server)),
 
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_server_form__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_server_index__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
-/***/ "./frontend/components/server/server_form.jsx":
-/*!****************************************************!*\
-  !*** ./frontend/components/server/server_form.jsx ***!
-  \****************************************************/
+/***/ "./frontend/components/server/server_index.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/server/server_index.jsx ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -398,10 +397,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -411,9 +407,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -421,59 +417,48 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-var ServerForm =
+var ServerIndex =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(ServerForm, _React$Component);
+  _inherits(ServerIndex, _React$Component);
 
-  function ServerForm(props) {
-    var _this;
+  function ServerIndex() {
+    _classCallCheck(this, ServerIndex);
 
-    _classCallCheck(this, ServerForm);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerForm).call(this, props));
-    _this.state = {
-      currentuserid: '',
-      currentserverid: '',
-      currentchannelid: '' // what do I need to pass into the state?
-
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(ServerIndex).apply(this, arguments));
   }
 
-  _createClass(ServerForm, [{
-    key: "handleInput",
-    value: function handleInput(type) {
-      var _this2 = this;
-
-      return function (e) {
-        _this2.setState(_defineProperty({}, type, e.target.value));
-      };
-    }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(type) {
-      e.preventDefault();
-      this.props.action(this.state);
+  _createClass(ServerIndex, [{
+    key: "componentDidMount",
+    // constructor(props) {
+    //     super(props);
+    // }
+    // react will write this out for you if you don't write anything
+    value: function componentDidMount() {
+      // componentDidMount is going to wait until everything on the render is done and then componentDidMount is going to run after the render and trigger a rerender of all the components, so the stuff you pass in here will be available for the second rerender
+      // you can put in msp stuff here too for ex:
+      // this.props.servers
+      this.props.index();
     }
   }, {
     key: "render",
     value: function render() {
+      var servers = this.props.servers.map(function (server) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: "{server.id}"
+        }, server.server_name);
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "server-form"
-      }, "\"I need an index of servers here, as well as a list of all channels inside of a server, all the messages of the currently selected channel, and all the users that have permission to see the currently selected channel, unless it is a direct message between two people, then I don't want those two users visible\" \xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/"
-      }, "link to splash page"));
+        className: "server-index"
+      }, servers);
     }
   }]);
 
-  return ServerForm;
+  return ServerIndex;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (ServerForm);
+/* harmony default export */ __webpack_exports__["default"] = (ServerIndex);
 
 /***/ }),
 

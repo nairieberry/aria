@@ -1,16 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-
-
 class ServerForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentuserid: '',
-            currentserverid: '',
-            currentchannelid: '',
             // what do I need to pass into the state?
+            // only if you need to keep track of local state, like for a form when creating a new user, or creating a new server, channel, or message
+            // you don't need one for index
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
