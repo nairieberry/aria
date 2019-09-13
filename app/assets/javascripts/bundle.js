@@ -249,11 +249,12 @@ document.addEventListener('DOMContentLoaded', function () {
     delete window.user;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  } // testing after store and before render
+  } // put these tests after store and before render
 
 
   window.store = store;
   window.dispatch = store.dispatch;
+  window.getState = store.getState;
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
