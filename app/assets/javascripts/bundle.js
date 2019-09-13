@@ -282,7 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/splash/splash_container */ "./frontend/components/splash/splash_container.js");
 /* harmony import */ var _session_register_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session/register_container */ "./frontend/components/session/register_container.js");
 /* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
-/* harmony import */ var _components_server_channels_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/server/channels_container */ "./frontend/components/server/channels_container.js");
+/* harmony import */ var _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/server/server_index_container */ "./frontend/components/server/server_index_container.js");
 
 
 
@@ -303,7 +303,7 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/channels",
-    component: _components_server_channels_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   })));
 });
 
@@ -336,54 +336,6 @@ var Root = function Root(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);
-
-/***/ }),
-
-/***/ "./frontend/components/server/channels_container.js":
-/*!**********************************************************!*\
-  !*** ./frontend/components/server/channels_container.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/server */ "./frontend/actions/server.js");
-/* harmony import */ var _server_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./server_index */ "./frontend/components/server/server_index.jsx");
-
-
-
-
-
-
-var mapStateToProps = function mapStateToProps(state) {
-  // debugger
-  // gives you an array of all the servers because servers are listed under their id as a key
-  var servers = Object.values(state.entities.servers);
-  return {
-    // now you're putting them into props
-    // props key - state value
-    servers: servers
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    index: function index() {
-      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["serverIndex"])());
-    } // you only need the index function for the index page
-    // show: id => dispatch(showServer(id)),
-    // new: server => dispatch(newServer(server)),
-    // edit: server => dispatch(editServer(server)),
-
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_server_index__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -449,6 +401,7 @@ function (_React$Component) {
       var servers = this.props.servers.map(function (server) {
         return (// <div key="{server.id}">{server.server_name}</div>
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+            key: server.id,
             to: "/channels/".concat(server.id)
           }, server.server_name)
         );
@@ -464,6 +417,54 @@ function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (ServerIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/server/server_index_container.js":
+/*!**************************************************************!*\
+  !*** ./frontend/components/server/server_index_container.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/server */ "./frontend/actions/server.js");
+/* harmony import */ var _server_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./server_index */ "./frontend/components/server/server_index.jsx");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  // debugger
+  // gives you an array of all the servers because servers are listed under their id as a key
+  var servers = Object.values(state.entities.servers);
+  return {
+    // now you're putting them into props
+    // props key - state value
+    servers: servers
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    index: function index() {
+      return dispatch(Object(_actions_server__WEBPACK_IMPORTED_MODULE_3__["serverIndex"])());
+    } // you only need the index function for the index page
+    // show: id => dispatch(showServer(id)),
+    // new: server => dispatch(newServer(server)),
+    // edit: server => dispatch(editServer(server)),
+
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_server_index__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 

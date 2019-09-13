@@ -5,7 +5,7 @@ import {AuthRoute, ProtectedRoute} from '../utils/route_utils';
 import Splash from '../components/splash/splash_container';
 import RegisterContainer from './session/register_container';
 import LoginContainer from '../components/session/login_container';
-import ChannelsContainer from '../components/server/channels_container';
+import ServerIndexContainer from '../components/server/server_index_container';
 
 export default () => (
     <div>
@@ -13,7 +13,8 @@ export default () => (
         <Route exact path="/" component={Splash} />
         <AuthRoute path="/register" component={RegisterContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <Route path="/channels" component={ChannelsContainer} />
+        <Route path="/channels" component={ServerIndexContainer} />
+
         </Switch>
     </div>
 );
