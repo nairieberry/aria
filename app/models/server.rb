@@ -22,4 +22,6 @@ class Server < ApplicationRecord
     has_many :users,
         through: :user_servers,
         source: :user
+
+    has_many :channels
 end

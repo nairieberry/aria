@@ -19,11 +19,21 @@ class User < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :Server
 
+    has_many :owned_channels,
+        foreign_key: :owner_id,
+        class_name: :Channel
+
     has_many :user_servers
 
     has_many :servers,
         through: :user_servers,
         source: :server
+
+    has_many :user_channels
+
+    has_many :channels,
+        through: :user_channels,
+        source: :channel
 
     attr_reader :password
     after_initialize :ensure_session_token

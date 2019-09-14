@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_09_13_235844) do
 
   create_table "messages", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "owner_id", null: false
+    t.integer "user_id", null: false
     t.integer "channel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["channel_id"], name: "index_messages_on_channel_id"
-    t.index ["owner_id"], name: "index_messages_on_owner_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "servers", force: :cascade do |t|

@@ -18,8 +18,7 @@ class Channel < ApplicationRecord
     belongs_to :owner,
         class_name: :User
 
-    belongs_to :server,
-        class_name: :Server
+    belongs_to :server
 
     has_many :user_channels
 
