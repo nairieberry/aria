@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_163054) do
+ActiveRecord::Schema.define(version: 2019_09_13_233903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.string "channel_name", null: false
+    t.string "description"
+    t.integer "owner_id", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_name"], name: "index_channels_on_channel_name", unique: true
+    t.index ["owner_id"], name: "index_channels_on_owner_id"
+    t.index ["server_id"], name: "index_channels_on_server_id"
+  end
 
   create_table "servers", force: :cascade do |t|
     t.string "server_name", null: false
