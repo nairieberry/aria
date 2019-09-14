@@ -23,6 +23,8 @@ class User < ApplicationRecord
         foreign_key: :owner_id,
         class_name: :Channel
 
+    has_many :messages
+
     has_many :user_servers
 
     has_many :servers,
