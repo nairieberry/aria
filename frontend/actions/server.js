@@ -30,5 +30,5 @@ export const newServer = server => dispatch => createServer(server)
 export const editServer = server => dispatch => updateServer(server)
     .then(server => dispatch(receiveCurrentServer(server)));
 
-export const deleteServer = () => dispatch => deleteServer()
+export const removeServer = () => dispatch => deleteServer()
     .then(() => dispatch(deleteCurrentServer()));

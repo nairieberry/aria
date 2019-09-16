@@ -20,3 +20,5 @@ export default () => (
         </Switch>
     </div>
 );
+
+// you need to add your channels and messages routes to here

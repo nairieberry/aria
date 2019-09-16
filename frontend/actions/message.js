@@ -27,5 +27,5 @@ export const newMessage = message => dispatch => createMessage(message)
 export const editMessage = message => dispatch => updateMessage(message)
     .then(message => dispatch(receiveCurrentMessage(message)));
 
-export const deleteMessage = () => dispatch => deleteMessage()
+export const removeMessage = () => dispatch => deleteMessage()
     .then(() => dispatch(deleteCurrentMessage()));

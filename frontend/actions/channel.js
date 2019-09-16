@@ -27,5 +27,5 @@ export const showChannel = id => dispatch => fetchChannel(id)
 export const newChannel = channel => dispatch => createChannel(channel)
     .then(channel => dispatch(receiveCurrentChannel(channel)));
 
-export const deleteChannel = () => dispatch => deleteChannel()
+export const removeChannel = () => dispatch => deleteChannel()
     .then(() => dispatch(deleteCurrentChannel()));

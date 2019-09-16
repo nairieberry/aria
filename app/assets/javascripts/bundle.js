@@ -90,10 +90,72 @@
 /*!*************************************!*\
   !*** ./frontend/actions/channel.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: RECEIVE_ALL_CHANNELS, RECEIVE_CURRENT_CHANNEL, DELETE_CURRENT_CHANNEL, channelIndex, showChannel, newChannel, removeChannel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/channel.js: Identifier 'deleteChannel' has already been declared (30:13)\n\n\u001b[0m \u001b[90m 28 | \u001b[39m    \u001b[33m.\u001b[39mthen(channel \u001b[33m=>\u001b[39m dispatch(receiveCurrentChannel(channel)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteChannel \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteChannel()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentChannel()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_CHANNELS", function() { return RECEIVE_ALL_CHANNELS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_CHANNEL", function() { return RECEIVE_CURRENT_CHANNEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CURRENT_CHANNEL", function() { return DELETE_CURRENT_CHANNEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "channelIndex", function() { return channelIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showChannel", function() { return showChannel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newChannel", function() { return newChannel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeChannel", function() { return removeChannel; });
+/* harmony import */ var _utils_channel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/channel */ "./frontend/utils/channel.js");
+
+var RECEIVE_ALL_CHANNELS = 'RECEIVE_ALL_CHANNELS';
+var RECEIVE_CURRENT_CHANNEL = 'RECEIVE_CURRENT_CHANNEL';
+var DELETE_CURRENT_CHANNEL = 'DELETE_CURRENT_CHANNEL';
+
+var receiveAllChannels = function receiveAllChannels(channels) {
+  return {
+    type: RECEIVE_ALL_CHANNELS,
+    channels: channels
+  };
+};
+
+var receiveCurrentChannel = function receiveCurrentChannel(channel) {
+  return {
+    type: RECEIVE_CURRENT_CHANNEL,
+    channel: channel
+  };
+};
+
+var deleteCurrentChannel = function deleteCurrentChannel() {
+  return {
+    type: DELETE_CURRENT_CHANNEL
+  };
+};
+
+var channelIndex = function channelIndex() {
+  return function (dispatch) {
+    return Object(_utils_channel__WEBPACK_IMPORTED_MODULE_0__["fetchAllChannels"])().then(function (channels) {
+      return dispatch(receiveAllChannels(channels));
+    });
+  };
+};
+var showChannel = function showChannel(id) {
+  return function (dispatch) {
+    return Object(_utils_channel__WEBPACK_IMPORTED_MODULE_0__["fetchChannel"])(id).then(function (channel) {
+      return dispatch(receiveCurrentChannel(channel));
+    });
+  };
+};
+var newChannel = function newChannel(channel) {
+  return function (dispatch) {
+    return Object(_utils_channel__WEBPACK_IMPORTED_MODULE_0__["createChannel"])(channel).then(function (channel) {
+      return dispatch(receiveCurrentChannel(channel));
+    });
+  };
+};
+var removeChannel = function removeChannel() {
+  return function (dispatch) {
+    return Object(_utils_channel__WEBPACK_IMPORTED_MODULE_0__["deleteChannel"])().then(function () {
+      return dispatch(deleteCurrentChannel());
+    });
+  };
+};
 
 /***/ }),
 
@@ -101,10 +163,72 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!*************************************!*\
   !*** ./frontend/actions/message.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: RECEIVE_ALL_MESSAGES, RECEIVE_CURRENT_MESSAGE, DELETE_CURRENT_MESSAGE, messageIndex, newMessage, editMessage, removeMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/message.js: Identifier 'deleteMessage' has already been declared (30:13)\n\n\u001b[0m \u001b[90m 28 | \u001b[39m    \u001b[33m.\u001b[39mthen(message \u001b[33m=>\u001b[39m dispatch(receiveCurrentMessage(message)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteMessage \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteMessage()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentMessage()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_MESSAGES", function() { return RECEIVE_ALL_MESSAGES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_MESSAGE", function() { return RECEIVE_CURRENT_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CURRENT_MESSAGE", function() { return DELETE_CURRENT_MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messageIndex", function() { return messageIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newMessage", function() { return newMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editMessage", function() { return editMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeMessage", function() { return removeMessage; });
+/* harmony import */ var _utils_message__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/message */ "./frontend/utils/message.js");
+
+var RECEIVE_ALL_MESSAGES = 'RECEIVE_ALL_MESSAGES';
+var RECEIVE_CURRENT_MESSAGE = 'RECIEVE_CURRENT_MESSAGE';
+var DELETE_CURRENT_MESSAGE = 'DELETE_CURRENT_MESSAGE';
+
+var receiveAllMessages = function receiveAllMessages(messages) {
+  return {
+    type: RECEIVE_ALL_MESSAGES,
+    messages: messages
+  };
+};
+
+var receiveCurrentMessage = function receiveCurrentMessage(message) {
+  return {
+    type: RECEIVE_CURRENT_MESSAGE,
+    message: message
+  };
+};
+
+var deleteCurrentMessage = function deleteCurrentMessage() {
+  return {
+    type: DELETE_CURRENT_MESSAGE
+  };
+};
+
+var messageIndex = function messageIndex() {
+  return function (dispatch) {
+    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["fetchAllMessages"])().then(function (messages) {
+      return dispatch(receiveAllMessages(messages));
+    });
+  };
+};
+var newMessage = function newMessage(message) {
+  return function (dispatch) {
+    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["createMessage"])(message).then(function (message) {
+      return dispatch(receiveCurrentMessage(message));
+    });
+  };
+};
+var editMessage = function editMessage(message) {
+  return function (dispatch) {
+    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["updateMessage"])(message).then(function (message) {
+      return dispatch(receiveCurrentMessage(message));
+    });
+  };
+};
+var removeMessage = function removeMessage() {
+  return function (dispatch) {
+    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["deleteMessage"])().then(function () {
+      return dispatch(deleteCurrentMessage());
+    });
+  };
+};
 
 /***/ }),
 
@@ -112,10 +236,80 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!************************************!*\
   !*** ./frontend/actions/server.js ***!
   \************************************/
-/*! exports provided: RECEIVE_ALL_SERVERS, RECEIVE_CURRENT_SERVER, serverIndex, showServer, newServer, editServer */
-/***/ (function(module, exports) {
+/*! exports provided: RECEIVE_ALL_SERVERS, RECEIVE_CURRENT_SERVER, DELETE_CURRENT_SERVER, serverIndex, showServer, newServer, editServer, removeServer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/server.js: Identifier 'deleteServer' has already been declared (33:13)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(server \u001b[33m=>\u001b[39m dispatch(receiveCurrentServer(server)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteServer \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteServer()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 34 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentServer()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SERVERS", function() { return RECEIVE_ALL_SERVERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_SERVER", function() { return RECEIVE_CURRENT_SERVER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CURRENT_SERVER", function() { return DELETE_CURRENT_SERVER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverIndex", function() { return serverIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showServer", function() { return showServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newServer", function() { return newServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editServer", function() { return editServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeServer", function() { return removeServer; });
+/* harmony import */ var _utils_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/server */ "./frontend/utils/server.js");
+
+var RECEIVE_ALL_SERVERS = 'RECEIVE_ALL_SERVERS';
+var RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
+var DELETE_CURRENT_SERVER = 'DELETE_CURRENT_SERVER';
+
+var receiveAllServers = function receiveAllServers(servers) {
+  return {
+    type: RECEIVE_ALL_SERVERS,
+    servers: servers
+  };
+};
+
+var receiveCurrentServer = function receiveCurrentServer(server) {
+  return {
+    type: RECEIVE_CURRENT_SERVER,
+    server: server
+  };
+};
+
+var deleteCurrentServer = function deleteCurrentServer() {
+  return {
+    type: DELETE_CURRENT_SERVER
+  };
+};
+
+var serverIndex = function serverIndex() {
+  return function (dispatch) {
+    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["fetchAllServers"])().then(function (servers) {
+      return dispatch(receiveAllServers(servers));
+    });
+  };
+};
+var showServer = function showServer(id) {
+  return function (dispatch) {
+    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["fetchServer"])(id).then(function (server) {
+      return dispatch(receiveCurrentServer(server));
+    });
+  };
+};
+var newServer = function newServer(server) {
+  return function (dispatch) {
+    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["createServer"])(server).then(function (server) {
+      return dispatch(receiveCurrentServer(server));
+    });
+  };
+};
+var editServer = function editServer(server) {
+  return function (dispatch) {
+    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["updateServer"])(server).then(function (server) {
+      return dispatch(receiveCurrentServer(server));
+    });
+  };
+};
+var removeServer = function removeServer() {
+  return function (dispatch) {
+    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["deleteServer"])().then(function () {
+      return dispatch(deleteCurrentServer());
+    });
+  };
+};
 
 /***/ }),
 
@@ -278,7 +472,7 @@ __webpack_require__.r(__webpack_exports__);
     path: "/channels/:serverId",
     component: _components_server_server_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   })));
-});
+}); // you need to add your channels and messages routes to here
 
 /***/ }),
 
@@ -877,7 +1071,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_channel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/channel */ "./frontend/actions/channel.js");
-/* harmony import */ var _actions_channel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_channel__WEBPACK_IMPORTED_MODULE_1__);
 
 
 var _nullChannel = {
@@ -949,7 +1142,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/message */ "./frontend/actions/message.js");
-/* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_message__WEBPACK_IMPORTED_MODULE_1__);
 
 
 var _nullMessage = {
@@ -1143,6 +1335,96 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/utils/channel.js":
+/*!***********************************!*\
+  !*** ./frontend/utils/channel.js ***!
+  \***********************************/
+/*! exports provided: fetchAllChannels, fetchChannel, createChannel, deleteChannel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllChannels", function() { return fetchAllChannels; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchChannel", function() { return fetchChannel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createChannel", function() { return createChannel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteChannel", function() { return deleteChannel; });
+var fetchAllChannels = function fetchAllChannels() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/channels'
+  });
+};
+var fetchChannel = function fetchChannel() {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/channels/".concat(id)
+  });
+};
+var createChannel = function createChannel(channel) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/channels',
+    data: {
+      channel: channel
+    }
+  });
+};
+var deleteChannel = function deleteChannel() {
+  return $.ajax({
+    url: '/api/channels',
+    method: 'DELETE'
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/utils/message.js":
+/*!***********************************!*\
+  !*** ./frontend/utils/message.js ***!
+  \***********************************/
+/*! exports provided: fetchAllMessages, createMessage, updateMessage, deleteMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllMessages", function() { return fetchAllMessages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMessage", function() { return createMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateMessage", function() { return updateMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMessage", function() { return deleteMessage; });
+// index create update delete
+var fetchAllMessages = function fetchAllMessages() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/messages'
+  });
+};
+var createMessage = function createMessage(message) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/messages',
+    data: {
+      message: message
+    }
+  });
+};
+var updateMessage = function updateMessage(message) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/messages/".concat(id),
+    data: {
+      message: message
+    }
+  });
+};
+var deleteMessage = function deleteMessage() {
+  return $.ajax({
+    url: '/api/messages',
+    method: 'DELETE'
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/utils/route_utils.jsx":
 /*!****************************************!*\
   !*** ./frontend/utils/route_utils.jsx ***!
@@ -1198,6 +1480,60 @@ var Protected = function Protected(_ref2) {
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
 var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
+
+/***/ }),
+
+/***/ "./frontend/utils/server.js":
+/*!**********************************!*\
+  !*** ./frontend/utils/server.js ***!
+  \**********************************/
+/*! exports provided: fetchAllServers, fetchServer, createServer, updateServer, deleteServer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllServers", function() { return fetchAllServers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchServer", function() { return fetchServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createServer", function() { return createServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateServer", function() { return updateServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteServer", function() { return deleteServer; });
+var fetchAllServers = function fetchAllServers() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/servers'
+  });
+};
+var fetchServer = function fetchServer(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/servers/".concat(id)
+  });
+};
+var createServer = function createServer(server) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/servers',
+    data: {
+      server: server
+    }
+  });
+};
+var updateServer = function updateServer(server) {
+  // server.channels = Object.keys(server.channels).map(key => server.channels[key]);
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/servers/".concat(id),
+    data: {
+      server: server
+    }
+  });
+};
+var deleteServer = function deleteServer() {
+  return $.ajax({
+    url: '/api/servers',
+    method: 'DELETE'
+  });
+};
 
 /***/ }),
 
