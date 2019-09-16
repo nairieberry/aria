@@ -1,4 +1,4 @@
-class Api::ChannelController < ApplicationController
+class Api::ChannelsController < ApplicationController
 
     def index
         @channels = Channel.all
