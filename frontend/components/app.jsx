@@ -15,15 +15,14 @@ import MessageIndexContainer from '../components/message/message_index_container
 export default () => (
     <div>
         <Route path="/channels" component={ServerIndexContainer} />
+        <Route path="/channels/:serverId" component={ServerShowContainer} />
+        <Route path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
+        <Route path="/channels/:serverId/:channelId/messages" component={MessageIndexContainer} />
+
         <Switch>
         <Route exact path="/" component={Splash} />
         <AuthRoute path="/register" component={RegisterContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <Route path="/channels/:serverId" component={ServerShowContainer} />
-
-        <Route exact path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
-        <Route path="/channels/:serverId/:channelId/messages" component={MessageIndexContainer} />
-
         </Switch>
     </div>
 );

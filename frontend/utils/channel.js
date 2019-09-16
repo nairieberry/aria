@@ -5,7 +5,7 @@ export const fetchAllChannels = () => (
     })
 );
 
-export const fetchChannel = () => (
+export const fetchChannel = (id) => (
     $.ajax({
         method: 'GET',
         url: `/api/channels/${id}`,
