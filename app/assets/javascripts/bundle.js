@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/channel.js: Identifier 'deleteChannel' has already been declared (29:13)\n\n\u001b[0m \u001b[90m 27 | \u001b[39m    \u001b[33m.\u001b[39mthen(channel \u001b[33m=>\u001b[39m dispatch(receiveCurrentChannel(channel)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 28 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteChannel \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteChannel()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentChannel()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/channel.js: Identifier 'deleteChannel' has already been declared (30:13)\n\n\u001b[0m \u001b[90m 28 | \u001b[39m    \u001b[33m.\u001b[39mthen(channel \u001b[33m=>\u001b[39m dispatch(receiveCurrentChannel(channel)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteChannel \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteChannel()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentChannel()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+
+/***/ }),
+
+/***/ "./frontend/actions/message.js":
+/*!*************************************!*\
+  !*** ./frontend/actions/message.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/message.js: Identifier 'deleteMessage' has already been declared (30:13)\n\n\u001b[0m \u001b[90m 28 | \u001b[39m    \u001b[33m.\u001b[39mthen(message \u001b[33m=>\u001b[39m dispatch(receiveCurrentMessage(message)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteMessage \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteMessage()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentMessage()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -869,6 +880,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_channel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_channel__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var _nullChannel = {
+  channel: null
+};
 
 var channelsReducer = function channelsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -882,6 +896,9 @@ var channelsReducer = function channelsReducer() {
     case _actions_channel__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_CHANNEL"]:
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.channel);
       return newState;
+
+    case _actions_channel__WEBPACK_IMPORTED_MODULE_1__["DELETE_CURRENT_CHANNEL"]:
+      return _nullChannel;
 
     default:
       return state;
@@ -906,7 +923,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _servers_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./servers_reducer */ "./frontend/reducers/servers_reducer.js");
 /* harmony import */ var _channels_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./channels_reducer */ "./frontend/reducers/channels_reducer.js");
 /* harmony import */ var _messages_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./messages_reducer */ "./frontend/reducers/messages_reducer.js");
-/* harmony import */ var _messages_reducer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_messages_reducer__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -916,7 +932,7 @@ __webpack_require__.r(__webpack_exports__);
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   servers: _servers_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   channels: _channels_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_4___default.a
+  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 }));
 
 /***/ }),
@@ -925,10 +941,43 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./frontend/reducers/messages_reducer.js ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/message */ "./frontend/actions/message.js");
+/* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_message__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var _nullMessage = {
+  message: null
+};
+
+var messagesReducer = function messagesReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_message__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_MESSAGES"]:
+      return action.messages;
+
+    case _actions_message__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_MESSAGE"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.message);
+      return newState;
+
+    case _actions_message__WEBPACK_IMPORTED_MODULE_1__["DELETE_CURRENT_MESSAGE"]:
+      return _nullMessage;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (messagesReducer);
 
 /***/ }),
 
