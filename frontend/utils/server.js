@@ -13,7 +13,6 @@ export const fetchServer = (id) => (
 );
 
 export const createServer = (server) => {
-
         return $.ajax({
             method: 'POST',
             url: 'api/servers',
@@ -30,3 +29,10 @@ export const updateServer = (server) => {
         data: {server}
     });
 };
+
+export const deleteServer = () => (
+    $.ajax({
+        url: '/api/servers',
+        method: 'DELETE',
+    })
+);

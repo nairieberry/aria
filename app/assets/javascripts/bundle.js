@@ -1137,7 +1137,7 @@ var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withR
 /*!**********************************!*\
   !*** ./frontend/utils/server.js ***!
   \**********************************/
-/*! exports provided: fetchAllServers, fetchServer, createServer, updateServer */
+/*! exports provided: fetchAllServers, fetchServer, createServer, updateServer, deleteServer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1146,6 +1146,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchServer", function() { return fetchServer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createServer", function() { return createServer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateServer", function() { return updateServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteServer", function() { return deleteServer; });
 var fetchAllServers = function fetchAllServers() {
   return $.ajax({
     method: 'GET',
@@ -1175,6 +1176,12 @@ var updateServer = function updateServer(server) {
     data: {
       server: server
     }
+  });
+};
+var deleteServer = function deleteServer() {
+  return $.ajax({
+    url: '/api/servers',
+    method: 'DELETE'
   });
 };
 
