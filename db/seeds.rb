@@ -6,16 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Message.delete_all
-Channel.delete_all
-Server.delete_all
-User.delete_all
+Message.destroy_all
+Channel.destroy_all
+Server.destroy_all
+User.destroy_all
 
-User.create!(
+user = User.create!({
     username: 'user',
     password: 'password',
-)
+})
 
-Server.create!(
-    
-)
+server = Server.create!({
+    server_name: 'server',
+    description: 'this is a server',
+    owner_id: user.id,
+})
+
+channel = Channel.create!({
+    channel_name: 'channel',
+    description: 'this is a channel',
+    owner_id: user.id,
+    server_id: server.id,
+})
+
+Message.create!({
+    body: 'this is a message',
+    user_id: user.id,
+    channel_id: channel.id,
+})

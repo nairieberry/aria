@@ -1,11 +1,11 @@
 class Api::MessagesController < ApplicationController
 
     def index
-        @messages = Messages.all
+        @messages = Message.all
     end
 
     def create
-        @messages = Messages.new(messages_params)
+        @messages = Message.new(messages_params)
         @messages.owner_id = current_user.id
         if @server.save
             render :show
