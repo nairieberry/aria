@@ -1,7 +1,7 @@
 class Api::MessageController < ApplicationController
 
     def index
-        @messagess = Messages.all
+        @messages = Messages.all
     end
 
     def create
@@ -31,7 +31,7 @@ class Api::MessageController < ApplicationController
     end
 
     def messages_params
-        params.require(:messages).permit(:messages_name, :description)
+        params.require(:messages).permit(:body)
     end
 
 end
