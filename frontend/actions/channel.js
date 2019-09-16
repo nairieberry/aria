@@ -13,6 +13,10 @@ const receiveCurrentChannel = channel => ({
     channel
 });
 
+const deleteCurrentChannel = () => ({
+    type: DELETE_CURRENT_CHANNEL,
+});
+
 export const channelIndex = () => dispatch => fetchAllChannels()
     .then(channels => dispatch(receiveAllChannels(channels)));
 
@@ -21,3 +25,6 @@ export const showChannel = id => dispatch => fetchChannel(id)
 
 export const newChannel = channel => dispatch => createChannel(channel)
     .then(channel => dispatch(receiveCurrentChannel(channel)));
+
+export const deleteChannel = () => dispatch => deleteChannel()
+    .then(() => dispatch(deleteCurrentServer()));
