@@ -1,37 +1,37 @@
 class Api::MessageController < ApplicationController
 
     def index
-        @channels = Channel.all
+        @messagess = Messages.all
     end
 
     def create
-        @channel = Channel.new(channel_params)
-        @channel.owner_id = current_user.id
+        @messages = Messages.new(messages_params)
+        @messages.owner_id = current_user.id
         if @server.save
             render :show
         else
-            render json: @channel.errors.full_messages, status: 422
+            render json: @messages.errors.full_messages, status: 422
         end
     end
 
     def update
-        @channel = current_user.channels.find(params[:id])
-        @channel.user_id = current_user.id
-        if @channel.update(channel_params)
+        @messages = current_user.messages.find(params[:id])
+        @messages.user_id = current_user.id
+        if @messages.update(messages_params)
             render :show
         else
-            render json: @channel.errors.full_messages, status: 422
+            render json: @messages.errors.full_messages, status: 422
         end
     end
 
     def delete
-        @channel = current_user.channels.find(params[:id])
-        @channel.destroy!
+        @messages = current_user.messages.find(params[:id])
+        @messages.destroy!
         render :show
     end
 
-    def channel_params
-        params.require(:channel).permit(:channel_name, :description)
+    def messages_params
+        params.require(:messages).permit(:messages_name, :description)
     end
 
 end
