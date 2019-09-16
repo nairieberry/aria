@@ -18,3 +18,6 @@ export const channelIndex = () => dispatch => fetchAllChannels()
 
 export const showChannel = id => dispatch => fetchChannel(id)
     .then(channel => dispatch(receiveCurrentChannel(channel)));
+
+export const newChannel = channel => dispatch => createChannel(channel)
+    .then(channel => dispatch(receiveCurrentChannel(channel)));

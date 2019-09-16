@@ -91,63 +91,9 @@
   !*** ./frontend/actions/server.js ***!
   \************************************/
 /*! exports provided: RECEIVE_ALL_SERVERS, RECEIVE_CURRENT_SERVER, serverIndex, showServer, newServer, editServer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SERVERS", function() { return RECEIVE_ALL_SERVERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_SERVER", function() { return RECEIVE_CURRENT_SERVER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "serverIndex", function() { return serverIndex; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showServer", function() { return showServer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newServer", function() { return newServer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editServer", function() { return editServer; });
-/* harmony import */ var _utils_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/server */ "./frontend/utils/server.js");
-
-var RECEIVE_ALL_SERVERS = 'RECEIVE_ALL_SERVERS';
-var RECEIVE_CURRENT_SERVER = 'RECEIVE_CURRENT_SERVER';
-
-var receiveAllServers = function receiveAllServers(servers) {
-  return {
-    type: RECEIVE_ALL_SERVERS,
-    servers: servers
-  };
-};
-
-var receiveCurrentServer = function receiveCurrentServer(server) {
-  return {
-    type: RECEIVE_CURRENT_SERVER,
-    server: server
-  };
-};
-
-var serverIndex = function serverIndex() {
-  return function (dispatch) {
-    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["fetchAllServers"])().then(function (servers) {
-      return dispatch(receiveAllServers(servers));
-    });
-  };
-};
-var showServer = function showServer(id) {
-  return function (dispatch) {
-    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["fetchServer"])(id).then(function (server) {
-      return dispatch(receiveCurrentServer(server));
-    });
-  };
-};
-var newServer = function newServer(server) {
-  return function (dispatch) {
-    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["createServer"])(server).then(function (server) {
-      return dispatch(receiveCurrentServer(server));
-    });
-  };
-};
-var editServer = function editServer(server) {
-  return function (dispatch) {
-    return Object(_utils_server__WEBPACK_IMPORTED_MODULE_0__["updateServer"])(server).then(function (server) {
-      return dispatch(receiveCurrentServer(server));
-    });
-  };
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/autumn/Desktop/aria/frontend/actions/server.js: Identifier 'deleteServer' has already been declared (33:13)\n\n\u001b[0m \u001b[90m 31 | \u001b[39m    \u001b[33m.\u001b[39mthen(server \u001b[33m=>\u001b[39m dispatch(receiveCurrentServer(server)))\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 32 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 33 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m deleteServer \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m deleteServer()\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 34 | \u001b[39m    \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m dispatch(deleteCurrentServer()))\u001b[33m;\u001b[39m\u001b[0m\n    at Object.raise (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:6387:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3767:12)\n    at ScopeHandler.declareName (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:3733:12)\n    at Object.checkLVal (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:8083:22)\n    at Object.parseVarId (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10573:10)\n    at Object.parseVar (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10548:12)\n    at Object.parseVarStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10370:10)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9967:21)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11088:17)\n    at Object.maybeParseExportDeclaration (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11038:31)\n    at Object.parseExport (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10967:29)\n    at Object.parseStatementContent (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10004:27)\n    at Object.parseStatement (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9900:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10476:25)\n    at Object.parseBlockBody (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:10463:10)\n    at Object.parseTopLevel (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:9829:10)\n    at Object.parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11341:17)\n    at parse (/Users/autumn/Desktop/aria/node_modules/@babel/parser/lib/index.js:11377:38)\n    at parser (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:166:34)\n    at normalizeFile (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/normalize-file.js:100:11)\n    at runSync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/autumn/Desktop/aria/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -1130,60 +1076,6 @@ var Protected = function Protected(_ref2) {
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
 var ProtectedRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Protected));
-
-/***/ }),
-
-/***/ "./frontend/utils/server.js":
-/*!**********************************!*\
-  !*** ./frontend/utils/server.js ***!
-  \**********************************/
-/*! exports provided: fetchAllServers, fetchServer, createServer, updateServer, deleteServer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllServers", function() { return fetchAllServers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchServer", function() { return fetchServer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createServer", function() { return createServer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateServer", function() { return updateServer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteServer", function() { return deleteServer; });
-var fetchAllServers = function fetchAllServers() {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/servers'
-  });
-};
-var fetchServer = function fetchServer(id) {
-  return $.ajax({
-    method: 'GET',
-    url: "/api/servers/".concat(id)
-  });
-};
-var createServer = function createServer(server) {
-  return $.ajax({
-    method: 'POST',
-    url: 'api/servers',
-    data: {
-      server: server
-    }
-  });
-};
-var updateServer = function updateServer(server) {
-  // server.channels = Object.keys(server.channels).map(key => server.channels[key]);
-  return $.ajax({
-    method: 'PATCH',
-    url: "api/servers/".concat(id),
-    data: {
-      server: server
-    }
-  });
-};
-var deleteServer = function deleteServer() {
-  return $.ajax({
-    url: '/api/servers',
-    method: 'DELETE'
-  });
-};
 
 /***/ }),
 
