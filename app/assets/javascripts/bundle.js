@@ -446,11 +446,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
 /* harmony import */ var _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/server/server_index_container */ "./frontend/components/server/server_index_container.js");
 /* harmony import */ var _components_server_server_show_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/server/server_show_container */ "./frontend/components/server/server_show_container.js");
+/* harmony import */ var _components_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/channel/channel_show_container */ "./frontend/components/channel/channel_show_container.js");
+/* harmony import */ var _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/message/message_index_container */ "./frontend/components/message/message_index_container.js");
 
 
 
 
 
+
+
+ // import ChannelIndexContainer from '../components/channel/channel_index_container';
 
 
 
@@ -471,8 +476,234 @@ __webpack_require__.r(__webpack_exports__);
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/channels/:serverId",
     component: _components_server_server_show_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/channels/:serverId/:channelId",
+    component: _components_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/channels/:serverId/:channelId/messages",
+    component: _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   })));
 }); // you need to add your channels and messages routes to here
+// when do I put the channel index container
+
+/***/ }),
+
+/***/ "./frontend/components/channel/channel_show.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/channel/channel_show.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var ChannelShow =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ChannelShow, _React$Component);
+
+  function ChannelShow() {
+    _classCallCheck(this, ChannelShow);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).apply(this, arguments));
+  }
+
+  _createClass(ChannelShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.show(this.props.channelId);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var channel = this.props.channel;
+      if (!channel) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, channel.channel_name);
+    }
+  }]);
+
+  return ChannelShow;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ChannelShow);
+
+/***/ }),
+
+/***/ "./frontend/components/channel/channel_show_container.js":
+/*!***************************************************************!*\
+  !*** ./frontend/components/channel/channel_show_container.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_channel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/channel */ "./frontend/actions/channel.js");
+/* harmony import */ var _channel_show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./channel_show */ "./frontend/components/channel/channel_show.jsx");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var channelId = ownProps.match.params.channelId;
+  return {
+    channel: state.entities.channels[channelId],
+    channelId: channelId
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    show: function show(id) {
+      return dispatch(Object(_actions_channel__WEBPACK_IMPORTED_MODULE_3__["showChannel"])(id));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_show__WEBPACK_IMPORTED_MODULE_4__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/message/message_index.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/message/message_index.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var MessageIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MessageIndex, _React$Component);
+
+  function MessageIndex() {
+    _classCallCheck(this, MessageIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MessageIndex).apply(this, arguments));
+  }
+
+  _createClass(MessageIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.index();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var messages = this.props.messages.map(function (message) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: message.id
+        }, message.body);
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-index"
+      }, messages);
+    }
+  }]);
+
+  return MessageIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (MessageIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/message/message_index_container.js":
+/*!****************************************************************!*\
+  !*** ./frontend/components/message/message_index_container.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/message */ "./frontend/actions/message.js");
+/* harmony import */ var _message_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./message_index */ "./frontend/components/message/message_index.jsx");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  var messages = Object.values(state.entities.messages);
+  return {
+    messages: messages
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    index: function index() {
+      return dispatch(Object(_actions_message__WEBPACK_IMPORTED_MODULE_3__["messageIndex"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_message_index__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -567,10 +798,11 @@ function (_React$Component) {
     value: function render() {
       var servers = this.props.servers.map(function (server) {
         return (// <div key="{server.id}">{server.server_name}</div>
+          // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name.slice(0, 2).toUpperCase()}</Link>
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             key: server.id,
             to: "/channels/".concat(server.id)
-          }, server.server_name.slice(0, 2).toUpperCase())
+          }, server.server_name)
         );
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -34896,7 +35128,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

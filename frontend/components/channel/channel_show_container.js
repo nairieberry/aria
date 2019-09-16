@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {showChannel} from '../../actions/channel;
+import {showChannel} from '../../actions/channel';
 import ChannelShow from './channel_show';
 
 const mapStateToProps = (state, ownProps) => {
