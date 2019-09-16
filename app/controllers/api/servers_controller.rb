@@ -44,6 +44,8 @@ class Api::ServersController < ApplicationController
         render :show
     end
 
+    # put what the user needs to put into the form in the params
+    # usually like username and password for user params
     def server_params
         params.require(:server).permit(:server_name, :description)
     end
