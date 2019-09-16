@@ -968,6 +968,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/server */ "./frontend/actions/server.js");
 
 
+var _nullServer = {
+  server: null
+};
 
 var serversReducer = function serversReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -982,6 +985,9 @@ var serversReducer = function serversReducer() {
       // const newState = merge({}, state, {[action.server.id]: action.server})
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.server);
       return newState;
+
+    case _actions_server__WEBPACK_IMPORTED_MODULE_1__["DELETE_CURRENT_SERVER"]:
+      return _nullServer;
 
     default:
       return state;
