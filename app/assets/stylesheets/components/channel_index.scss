@@ -1,7 +1,7 @@
 .channel-index {
     display: flex;
     flex-direction: column;
-    background: grey;
+    background: #2F3136;
     width: 100px;
     height: 100vh;
     align-items: center;
@@ -10,12 +10,13 @@
         width: 80px;
         height: 80px;
         border: 1px;
-        background: lavender;
+        background: #2F3136;
         border-radius: 10px;
         font-size: 60px;
         font-weight: 600;
         margin-top: 10px;
         line-height: 80px;
         text-align: center;
+        color: #FFFFFF;
     }
 }
