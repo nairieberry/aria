@@ -22,7 +22,7 @@ export default () => (
         </div>
 
         <Switch>
-        <Route exact path="/" component={Splash} />
+        <AuthRoute exact path="/" component={Splash} />
         <AuthRoute path="/register" component={RegisterContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         </Switch>
