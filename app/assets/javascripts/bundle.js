@@ -540,15 +540,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // let channels = this.props.channels.map(channel => (
-      //     <Link key={channel.id} to={`channels/${server.id}/${channel.id}`}>{channel.channel_name}</Link>
-      // ))
       var channels = this.props.channels.map(function (channel) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           key: channel.id,
           to: "/channels/".concat(channel.server_id, "/").concat(channel.id)
-        }, channel.channel_name.slice(0, 1).toUpperCase(), channel.id);
-      });
+        }, channel.channel_name);
+      }); // let channels = this.props.channels.map(channel => (
+      //     <Link key={channel.id} to={`/channels/${channel.server_id}/${channel.id}`}>{channel.channel_name.slice(0, 1).toUpperCase()}{channel.id}</Link>
+      // ))
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-index"
       }, channels);
@@ -35242,7 +35242,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
