@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
     newChannel: (channel) => dispatch(newChannel(channel)),
     openModal: (
         <button onClick={() => dispatch(openModal('channel'))}>
-            Create Channel
+            Create a new channel
         </button>
     ),
     closeModal: () => dispatch(closeModal()),
