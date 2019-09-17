@@ -478,14 +478,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _utils_route_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_utils */ "./frontend/utils/route_utils.jsx");
-/* harmony import */ var _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/splash/splash_container */ "./frontend/components/splash/splash_container.js");
-/* harmony import */ var _session_register_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session/register_container */ "./frontend/components/session/register_container.js");
-/* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
-/* harmony import */ var _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/server/server_index_container */ "./frontend/components/server/server_index_container.js");
-/* harmony import */ var _components_server_server_show_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/server/server_show_container */ "./frontend/components/server/server_show_container.js");
-/* harmony import */ var _components_channel_channel_index_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/channel/channel_index_container */ "./frontend/components/channel/channel_index_container.js");
-/* harmony import */ var _components_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/channel/channel_show_container */ "./frontend/components/channel/channel_show_container.js");
-/* harmony import */ var _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/message/message_index_container */ "./frontend/components/message/message_index_container.js");
+/* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
+/* harmony import */ var _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/splash/splash_container */ "./frontend/components/splash/splash_container.js");
+/* harmony import */ var _session_register_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session/register_container */ "./frontend/components/session/register_container.js");
+/* harmony import */ var _components_session_login_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/session/login_container */ "./frontend/components/session/login_container.js");
+/* harmony import */ var _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/server/server_index_container */ "./frontend/components/server/server_index_container.js");
+/* harmony import */ var _components_server_server_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/server/server_show_container */ "./frontend/components/server/server_show_container.js");
+/* harmony import */ var _components_channel_channel_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/channel/channel_index_container */ "./frontend/components/channel/channel_index_container.js");
+/* harmony import */ var _components_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/channel/channel_show_container */ "./frontend/components/channel/channel_show_container.js");
+/* harmony import */ var _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/message/message_index_container */ "./frontend/components/message/message_index_container.js");
+
 
 
 
@@ -498,27 +500,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/channels",
-    component: _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _components_server_server_index_container__WEBPACK_IMPORTED_MODULE_7__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/channels/:serverId",
-    component: _components_channel_channel_index_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _components_channel_channel_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     path: "/channels/:serverId/:channelId",
-    component: _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_11__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
     path: "/",
-    component: _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _components_splash_splash_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     path: "/register",
-    component: _session_register_container__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _session_register_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     path: "/login",
-    component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_session_login_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   })));
 }); // you need to add your channels and messages routes to here
 // when do I put the channel index container
@@ -866,6 +868,36 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_message_index__WEBPACK_IMPORTED_MODULE_4__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/modal/modal.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/modal/modal.jsx ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+
+
+
+function Modal(_ref) {
+  var modal = _ref.modal,
+      closeModal = _ref.closeModal;
+
+  if (!modal) {
+    return null;
+  }
+
+  var component;
+}
 
 /***/ }),
 

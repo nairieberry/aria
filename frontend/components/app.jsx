@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {AuthRoute, ProtectedRoute} from '../utils/route_utils';
 
+import Modal from './modal/modal';
 import Splash from '../components/splash/splash_container';
 import RegisterContainer from './session/register_container';
 import LoginContainer from '../components/session/login_container';
@@ -14,6 +15,7 @@ import MessageIndexContainer from '../components/message/message_index_container
 
 export default () => (
     <div>
+        <Modal />
         <div className="main-container">
             <ProtectedRoute path="/channels" component={ServerIndexContainer} />
             {/* <ProtectedRoute path="/channels/:serverId" component={ServerShowContainer} /> */}
