@@ -7,16 +7,18 @@ class MessageIndex extends React.Component {
     };
 
     render () {
+        let users = this.props.users
         let messages = this.props.messages.map(message => (
+            // <div className="message-index-box" key={message.id}>
             <div key={message.id}>
-                {message.body}
+                {users[message.user_id].username}&nbsp;{message.body}
             </div>
         ))
 
         return (
             <div className="message-index">
                 <div className="message-index-box">
-                    {messages}
+                    {messages.reverse()}
                 </div>
             </div>
         )

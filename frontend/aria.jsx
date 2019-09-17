@@ -5,7 +5,8 @@ import configureStore from './store/store';
 
 // testing
 // import * as utils from './utils/server';
-import * as actions from './actions/server';
+import * as serveractions from './actions/server';
+import * as sessionactions from './actions/session';
 
 document.addEventListener('DOMContentLoaded', () => {
     // debugger
@@ -35,4 +36,5 @@ window.getState = store.getState;
 
 // testing
 // window.utils = utils
-window.actions = actions
+window.serveractions = serveractions
+window.sessionactions = sessionactions

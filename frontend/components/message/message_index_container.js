@@ -9,6 +9,8 @@ const mapStateToProps = (state) => {
     let messages = Object.values(state.entities.messages)
     return{
         messages: messages,
+        users: state.entities.users,
+        // it doesn't know what users is, it's coming from state
     };
 };
 

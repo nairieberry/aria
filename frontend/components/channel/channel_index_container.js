@@ -5,8 +5,10 @@ import {connect} from 'react-redux';
 import {channelIndex} from '../../actions/channel';
 import ChannelIndex from './channel_index';
 
-const mapStateToProps = (state) => {
-    let channels = Object.values(state.entities.channels)
+const mapStateToProps = (state, ownProps) => {
+    let serverId = ownProps.match.params.serverId
+    let channels = Object.values(state.entities.channels).filter(channel => channel.server_id == serverId)
+    // debugger
     return{
         channels: channels,
     };

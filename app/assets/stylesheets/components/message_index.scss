@@ -1,11 +1,16 @@
 .message-index {
-    display: flex;
-    // display: block;
-    // flex-direction: column;
     background: #36393F;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    // color: #DCDDDE;
+    width: calc(100% - 280px);
+}
+
+.message-index-box {
+    height: 90vh;
     color: #FFFFFF;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-direction: column;
+    // align-items: center;
+    // color: #DCDDDE;
+    // display: block;
 }

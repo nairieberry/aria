@@ -181,10 +181,14 @@ var RECEIVE_ALL_MESSAGES = 'RECEIVE_ALL_MESSAGES';
 var RECEIVE_CURRENT_MESSAGE = 'RECIEVE_CURRENT_MESSAGE';
 var DELETE_CURRENT_MESSAGE = 'DELETE_CURRENT_MESSAGE';
 
-var receiveAllMessages = function receiveAllMessages(messages) {
+var receiveAllMessages = function receiveAllMessages(_ref) {
+  var messages = _ref.messages,
+      users = _ref.users;
   return {
+    // takes in your payload object as an argument, and looks inside the object for a key of messages and users
     type: RECEIVE_ALL_MESSAGES,
-    messages: messages
+    messages: messages,
+    users: users
   };
 };
 
@@ -203,11 +207,12 @@ var deleteCurrentMessage = function deleteCurrentMessage() {
 
 var messageIndex = function messageIndex() {
   return function (dispatch) {
-    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["fetchAllMessages"])().then(function (messages) {
-      return dispatch(receiveAllMessages(messages));
+    return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["fetchAllMessages"])().then(function (payload) {
+      return dispatch(receiveAllMessages(payload));
     });
   };
-};
+}; // you're sending back messages and users
+
 var newMessage = function newMessage(message) {
   return function (dispatch) {
     return Object(_utils_message__WEBPACK_IMPORTED_MODULE_0__["createMessage"])(message).then(function (message) {
@@ -385,6 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _actions_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/server */ "./frontend/actions/server.js");
+/* harmony import */ var _actions_session__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/session */ "./frontend/actions/session.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -392,6 +398,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  // testing
 // import * as utils from './utils/server';
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -424,7 +431,8 @@ document.addEventListener('DOMContentLoaded', function () {
 }); // testing
 // window.utils = utils
 
-window.actions = _actions_server__WEBPACK_IMPORTED_MODULE_4__;
+window.serveractions = _actions_server__WEBPACK_IMPORTED_MODULE_4__;
+window.sessionactions = _actions_session__WEBPACK_IMPORTED_MODULE_5__;
 
 /***/ }),
 
@@ -548,6 +556,7 @@ function (_React$Component) {
       }); // let channels = this.props.channels.map(channel => (
       //     <Link key={channel.id} to={`/channels/${channel.server_id}/${channel.id}`}>{channel.channel_name.slice(0, 1).toUpperCase()}{channel.id}</Link>
       // ))
+      // debugger
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-index"
@@ -583,8 +592,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
-  var channels = Object.values(state.entities.channels);
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var serverId = ownProps.match.params.serverId;
+  var channels = Object.values(state.entities.channels).filter(function (channel) {
+    return channel.server_id == serverId;
+  }); // debugger
+
   return {
     channels: channels
   };
@@ -761,16 +774,19 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var users = this.props.users;
       var messages = this.props.messages.map(function (message) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: message.id
-        }, message.body);
+        return (// <div className="message-index-box" key={message.id}>
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: message.id
+          }, users[message.user_id].username, "\xA0", message.body)
+        );
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-index-box"
-      }, messages));
+      }, messages.reverse()));
     }
   }]);
 
@@ -806,7 +822,9 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   var messages = Object.values(state.entities.messages);
   return {
-    messages: messages
+    messages: messages,
+    users: state.entities.users // it doesn't know what users is, it's coming from state
+
   };
 };
 
@@ -1608,7 +1626,7 @@ var _nullSession = {
   switch (action.type) {
     case _actions_session__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, {
-        user: action.user
+        id: action.user.id
       });
 
     case _actions_session__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
@@ -1631,7 +1649,9 @@ var _nullSession = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session */ "./frontend/actions/session.js");
+/* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/message */ "./frontend/actions/message.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1643,6 +1663,10 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
+
+    case _actions_message__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_MESSAGES"]:
+      // debugger
+      return Object.assign({}, state, action.users);
 
     default:
       return state;
