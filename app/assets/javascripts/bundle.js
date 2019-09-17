@@ -472,7 +472,7 @@ __webpack_require__.r(__webpack_exports__);
     path: "/channels/:serverId/:channelId",
     component: _components_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
-    path: "/channels/:serverId/:channelId/messages",
+    path: "/channels/:serverId/:channelId",
     component: _components_message_message_index_container__WEBPACK_IMPORTED_MODULE_9__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_utils_route_utils__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
     exact: true,
@@ -799,11 +799,11 @@ function (_React$Component) {
     value: function render() {
       var servers = this.props.servers.map(function (server) {
         return (// <div key="{server.id}">{server.server_name}</div>
+          // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name.slice(0, 2).toUpperCase()}</Link>
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             key: server.id,
-            to: "/channels/".concat(server.id)
-          }, server.server_name.slice(0, 2).toUpperCase()) // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name}</Link>
-
+            to: "/channels/".concat(server.id, "/1")
+          }, server.server_name.slice(0, 1).toUpperCase(), server.id)
         );
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
