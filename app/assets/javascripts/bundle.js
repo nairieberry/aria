@@ -599,7 +599,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hi"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hi"));
     }
   }]);
 
@@ -1016,10 +1018,10 @@ function Modal(_ref) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal",
+    className: "modal-background",
     onClick: closeModal
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-thing",
+    className: "modal-child",
     onClick: function onClick(e) {
       return e.stopPropagation();
     }

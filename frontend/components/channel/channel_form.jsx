@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="channel-form">
                 <div>hi</div>
             </div>
         )
