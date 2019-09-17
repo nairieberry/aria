@@ -15,7 +15,7 @@ class MessageIndex extends React.Component {
 
         return (
             <div className="message-index">
-                <div className="message-index-box">>
+                <div className="message-index-box">
                     {messages}
                 </div>
             </div>
