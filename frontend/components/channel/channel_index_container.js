@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import {channelIndex} from '../../actions/channel';
+import {openModal, closeModal} from '../../actions/modal_actions';
+import {channelIndex, newChannel} from '../../actions/channel';
 import ChannelIndex from './channel_index';
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,6 +17,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
     index: () => dispatch(channelIndex()),
+    newChannel: (channel) => dispatch(newChannel(channel)),
+    openModal: (
+        <button onClick={() => dispatch(openModal('channel'))}>
+            Create Channel
+        </button>
+    ),
+    closeModal: () => dispatch(closeModal()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);

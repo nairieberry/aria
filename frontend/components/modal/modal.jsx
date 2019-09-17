@@ -1,6 +1,10 @@
 import React from 'react';
 import {closeModal} from '../../actions/modal_actions';
 import {connect} from 'react-redux';
+import ChannelIndexContainer from '../channel/channel_index_container';
+import ServerIndexContainer from '../server/server_index_container';
+
+import CreateChannelContainer from '../channel/channel_form';
 
 function Modal({modal, closeModal}) {
 
@@ -11,10 +15,10 @@ function Modal({modal, closeModal}) {
     let component;
     switch (modal) {
         case 'server':
-            component = <ServerModalContainer />;
+            component = <CreateServerContainer />;
             break;
         case 'channel':
-            component = <ChannelModalContainer />;
+            component = <CreateChannelContainer />;
             break;
         default:
             return null;
