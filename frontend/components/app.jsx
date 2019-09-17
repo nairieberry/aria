@@ -14,10 +14,12 @@ import MessageIndexContainer from '../components/message/message_index_container
 
 export default () => (
     <div>
-        <Route path="/channels" component={ServerIndexContainer} />
-        <Route path="/channels/:serverId" component={ServerShowContainer} />
-        <Route path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
-        <Route path="/channels/:serverId/:channelId/messages" component={MessageIndexContainer} />
+        <div className="main-container">
+            <ProtectedRoute path="/channels" component={ServerIndexContainer} />
+            <ProtectedRoute path="/channels/:serverId" component={ServerShowContainer} />
+            <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
+            <ProtectedRoute path="/channels/:serverId/:channelId/messages" component={MessageIndexContainer} />
+        </div>
 
         <Switch>
         <Route exact path="/" component={Splash} />

@@ -18,8 +18,8 @@ class ServerIndex extends React.Component {
 
         let servers = this.props.servers.map(server => (
             // <div key="{server.id}">{server.server_name}</div>
-            // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name.slice(0, 2).toUpperCase()}</Link>
-            <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name}</Link>
+            <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name.slice(0, 2).toUpperCase()}</Link>
+            // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name}</Link>
 
         ))
 

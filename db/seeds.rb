@@ -6,31 +6,87 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Message.destroy_all
-Channel.destroy_all
-Server.destroy_all
-User.destroy_all
+ActiveRecord::Base.transaction do
 
-user = User.create!({
-    username: 'user',
-    password: 'password',
-})
+    Message.destroy_all
+    Channel.destroy_all
+    Server.destroy_all
+    User.destroy_all
 
-server = Server.create!({
-    server_name: 'server',
-    description: 'this is a server',
-    owner_id: user.id,
-})
+    user = User.create!({
+        username: 'user',
+        password: 'password',
+    })
 
-channel = Channel.create!({
-    channel_name: 'channel',
-    description: 'this is a channel',
-    owner_id: user.id,
-    server_id: server.id,
-})
+    server = Server.create!({
+        server_name: 'server',
+        description: 'this is a server',
+        owner_id: user.id,
+    })
 
-Message.create!({
-    body: 'this is a message',
-    user_id: user.id,
-    channel_id: channel.id,
-})
+    server2 = Server.create!({
+        server_name: 'server2',
+        description: 'this is a server 2',
+        owner_id: user.id,
+    })
+
+    server3 = Server.create!({
+        server_name: 'server3',
+        description: 'this is a server 3',
+        owner_id: user.id,
+    })
+
+    server4 = Server.create!({
+        server_name: 'server4',
+        description: 'this is a server 4',
+        owner_id: user.id,
+    })
+
+    server5 = Server.create!({
+        server_name: 'server5',
+        description: 'this is a server 5',
+        owner_id: user.id,
+    })
+
+    channel = Channel.create!({
+        channel_name: 'channel',
+        description: 'this is a channel',
+        owner_id: user.id,
+        server_id: server.id,
+    })
+
+    channel = Channel.create!({
+        channel_name: 'channel',
+        description: 'this is a channel',
+        owner_id: user.id,
+        server_id: server.id,
+    })
+
+    channel = Channel.create!({
+        channel_name: 'channel',
+        description: 'this is a channel',
+        owner_id: user.id,
+        server_id: server.id,
+    })
+
+    channel = Channel.create!({
+        channel_name: 'channel',
+        description: 'this is a channel',
+        owner_id: user.id,
+        server_id: server.id,
+    })
+
+    channel = Channel.create!({
+        channel_name: 'channel',
+        description: 'this is a channel',
+        owner_id: user.id,
+        server_id: server.id,
+    })
+
+    Message.create!({
+        body: 'this is a message',
+        user_id: user.id,
+        channel_id: channel.id,
+    })
+
+end
