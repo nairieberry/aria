@@ -875,7 +875,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 /*!*********************************************!*\
   !*** ./frontend/components/modal/modal.jsx ***!
   \*********************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -897,7 +897,46 @@ function Modal(_ref) {
   }
 
   var component;
+
+  switch (modal) {
+    case 'server':
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ServerModalContainer, null);
+      break;
+
+    case 'channel':
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ChannelModalContainer, null);
+      break;
+
+    default:
+      return null;
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal",
+    onClick: closeModal
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-thing",
+    onClick: function onClick(e) {
+      return e.stopPropagation();
+    }
+  }, component));
 }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    modal: state.ui.modal
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Modal));
 
 /***/ }),
 
