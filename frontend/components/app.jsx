@@ -8,7 +8,7 @@ import LoginContainer from '../components/session/login_container';
 import ServerIndexContainer from '../components/server/server_index_container';
 import ServerShowContainer from '../components/server/server_show_container';
 
-// import ChannelIndexContainer from '../components/channel/channel_index_container';
+import ChannelIndexContainer from '../components/channel/channel_index_container';
 import ChannelShowContainer from '../components/channel/channel_show_container';
 import MessageIndexContainer from '../components/message/message_index_container';
 
@@ -16,8 +16,9 @@ export default () => (
     <div>
         <div className="main-container">
             <ProtectedRoute path="/channels" component={ServerIndexContainer} />
-            <ProtectedRoute path="/channels/:serverId" component={ServerShowContainer} />
-            <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} />
+            {/* <ProtectedRoute path="/channels/:serverId" component={ServerShowContainer} /> */}
+            <ProtectedRoute path="/channels/:serverId" component={ChannelIndexContainer} />
+            {/* <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} /> */}
             <ProtectedRoute path="/channels/:serverId/:channelId" component={MessageIndexContainer} />
         </div>
 

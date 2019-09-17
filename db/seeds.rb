@@ -91,4 +91,28 @@ ActiveRecord::Base.transaction do
         channel_id: channel.id,
     })
 
+    Message.create!({
+        body: 'this is a message 2',
+        user_id: user.id,
+        channel_id: channel.id,
+    })
+
+    Message.create!({
+        body: 'this is a message 3',
+        user_id: user.id,
+        channel_id: channel.id,
+    })
+
+    Message.create!({
+        body: 'this is a message 4',
+        user_id: user.id,
+        channel_id: channel.id,
+    })
+
+    Message.create!({
+        body: 'this is a message 5',
+        user_id: user.id,
+        channel_id: channel.id,
+    })
+
 end

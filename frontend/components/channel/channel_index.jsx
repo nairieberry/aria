@@ -7,11 +7,15 @@ class ChannelIndex extends React.Component {
     };
 
     render () {
+        // let channels = this.props.channels.map(channel => (
+        //     <Link key={channel.id} to={`channels/${server.id}/${channel.id}`}>{channel.channel_name}</Link>
+        // ))
         let channels = this.props.channels.map(channel => (
-            <Link key={channel.id} to={`channels/${server.id}/${channel.id}`}>{channel.channel_name}</Link>
+            <Link key={channel.id} to={`/channels/${channel.server_id}/${channel.id}`}>{channel.channel_name.slice(0, 1).toUpperCase()}{channel.id}</Link>
         ))
 
         return (
+
             <div className="channel-index">
                 {channels}
             </div>

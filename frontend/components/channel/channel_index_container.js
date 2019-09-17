@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {channelIndex} from '../../actions/channel';
-import ChannelIndex from './channel_index;';
+import ChannelIndex from './channel_index';
 
 const mapStateToProps = (state) => {
     let channels = Object.values(state.entities.channels)
