@@ -2,21 +2,22 @@
     display: flex;
     flex-direction: column;
     background: #202225;
-    width: 100px;
+    width: 80px;
     height: 100vh;
     align-items: center;
     
     a {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         border: 1px;
         background: #36393F;
         border-radius: 10px;
-        font-size: 60px;
+        font-size: 40px;
         font-weight: 600;
         margin-top: 10px;
-        line-height: 80px;
+        line-height: 60px;
         text-align: center;
         color: #DCDDDE;
+        border-radius: 100px;
     }
 }
