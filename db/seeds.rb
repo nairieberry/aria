@@ -55,30 +55,30 @@ ActiveRecord::Base.transaction do
         server_id: server.id,
     })
 
-    channel = Channel.create!({
-        channel_name: 'channel',
-        description: 'this is a channel',
+    channel2 = Channel.create!({
+        channel_name: 'channel2',
+        description: 'this is a channel 2',
         owner_id: user.id,
         server_id: server.id,
     })
 
-    channel = Channel.create!({
-        channel_name: 'channel',
-        description: 'this is a channel',
+    channel3 = Channel.create!({
+        channel_name: 'channel3',
+        description: 'this is a channel 3',
         owner_id: user.id,
         server_id: server.id,
     })
 
-    channel = Channel.create!({
-        channel_name: 'channel',
-        description: 'this is a channel',
+    channel4 = Channel.create!({
+        channel_name: 'channel4',
+        description: 'this is a channel 4',
         owner_id: user.id,
         server_id: server.id,
     })
 
-    channel = Channel.create!({
-        channel_name: 'channel',
-        description: 'this is a channel',
+    channel5 = Channel.create!({
+        channel_name: 'channel5',
+        description: 'this is a channel 5',
         owner_id: user.id,
         server_id: server.id,
     })
