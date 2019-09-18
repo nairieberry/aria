@@ -1,5 +1,25 @@
 .server-form {
-    color: #FFFFFF;
+    color: #7289DA;
+    background-color: #FFFFFF;
+    height: 380px;
+    width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: $font;
+    font-size: 18px;
+}
+
+.server-form-banner {
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.server-form-banner2 {
+    color: #99AAB5;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .server-form-field {

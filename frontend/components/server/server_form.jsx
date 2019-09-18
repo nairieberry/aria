@@ -42,23 +42,24 @@ class ServerForm extends React.Component {
     render () {
         return (
             <div className="server-form">
-                <div>hi</div>
+                <div className="server-form-banner">CREATE YOUR SERVER</div>
+                <div className="server-form-banner2">By creating a server, you will have access to <b>free</b> voice and text chat to use amongst your friends.</div>
                 <form>
-                    <label className="server-form-field"><div className="server-form-minibox">server Name</div>
+                    <label className="server-form-field"><div className="server-form-minibox">SERVER NAME</div>
                         <input className="server-form-field-box" type="text"
                             value={this.state.server_name}
                             onChange={this.handleInput('server_name')} />
                     </label>
                 </form>
                 <form>
-                    <label className="server-form-field"><div className="server-form-minibox">Description</div>
+                    <label className="server-form-field"><div className="server-form-minibox">DESCRIPTION</div>
                         <input className="server-form-field-box" type="text"
                             value={this.state.description}
                             onChange={this.handleInput('description')} />
                     </label>
                     <div className="server-form-submit">
                         {/* <button onClick={this.handleSubmit}>{this.props.buttonText}</button> */}
-                        <button onClick={this.handleSubmit}>Create new server</button>
+                        <button onClick={this.handleSubmit}>Create</button>
                     </div>
                 </form>
             </div>

@@ -1434,11 +1434,15 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "server-form-banner"
+      }, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "server-form-banner2"
+      }, "By creating a server, you will have access to ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "free"), " voice and text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "server-form-field"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-form-minibox"
-      }, "server Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "server-form-field-box",
         type: "text",
         value: this.state.server_name,
@@ -1447,7 +1451,7 @@ function (_React$Component) {
         className: "server-form-field"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-form-minibox"
-      }, "Description"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "DESCRIPTION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "server-form-field-box",
         type: "text",
         value: this.state.description,
@@ -1456,7 +1460,7 @@ function (_React$Component) {
         className: "server-form-submit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleSubmit
-      }, "Create new server"))));
+      }, "Create"))));
     }
   }]);
 
