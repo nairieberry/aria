@@ -1,5 +1,15 @@
 import React from 'react';
 import MessageForm from './messageform';
+import {connect} from 'react-redux';
+
+const mapStateToProps = (state, ownProps) => {
+    let channelId = ownProps.match.params.channelId
+    let messages = Object.values(state.entities.messages).filter(message => message.channel_id == channelId)
+    return{
+        messages: messages,
+        users: state.entities.users,
+    };
+};
 
 class ChatRoom extends React.Component {
     constructor(props) {
@@ -9,6 +19,7 @@ class ChatRoom extends React.Component {
     }
 
     componentDidMount() {
+        // this.props.index
         App.cable.subscriptions.create(
             {channel: "ChatChannel"},
             {
