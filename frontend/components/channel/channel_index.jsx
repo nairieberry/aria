@@ -15,8 +15,8 @@ class ChannelIndex extends React.Component {
         // ))
         // debugger
         return (
-
             <div className="channel-index">
+                {/* {this.props.server_name} */}
                 {this.props.openModal}
                 {/* <div onClick={this.props.closeModal}>close modal</div> */}
                 {channels}

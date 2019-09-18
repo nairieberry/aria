@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     // debugger
     return{
         channels: channels,
+        // servers: servers,
     };
 };
 

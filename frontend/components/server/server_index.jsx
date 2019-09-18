@@ -26,6 +26,7 @@ class ServerIndex extends React.Component {
         return (
             <div className="server-index">
                     {servers}
+                    {this.props.openModal}
             </div>
         )
     }

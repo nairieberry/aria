@@ -752,7 +752,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   }); // debugger
 
   return {
-    channels: channels
+    channels: channels // servers: servers,
+
   };
 };
 
@@ -984,8 +985,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
-  var messages = Object.values(state.entities.messages);
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var channelId = ownProps.match.params.channelId;
+  var messages = Object.values(state.entities.messages).filter(function (message) {
+    return message.channel_id == channelId;
+  });
   return {
     messages: messages,
     users: state.entities.users // it doesn't know what users is, it's coming from state
@@ -1192,7 +1196,7 @@ function (_React$Component) {
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "server-index"
-      }, servers);
+      }, servers, this.props.openModal);
     }
   }]);
 
