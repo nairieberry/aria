@@ -720,7 +720,9 @@ function (_React$Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-index"
-      }, this.props.openModal, channels);
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-form-text"
+      }, "TEXT CHANNELS"), this.props.openModal, channels);
     }
   }]);
 
@@ -779,7 +781,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
       onClick: function onClick() {
         return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])('channel', ownProps.match.params.serverId));
       }
-    }, "TEXT CHANNELS \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "+")),
+    }, "+"),
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
     }

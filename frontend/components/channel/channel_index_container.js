@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     newChannel: (channel) => dispatch(newChannel(channel)),
     openModal: (
         <button className="channel-form-button" onClick={() => dispatch(openModal('channel', ownProps.match.params.serverId))}>
-            TEXT CHANNELS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{`+`}</span>
+            +
         </button>
     ),
     closeModal: () => dispatch(closeModal()),
