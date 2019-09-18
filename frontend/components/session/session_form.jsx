@@ -36,6 +36,7 @@ class SessionForm extends React.Component {
     // }
 
     render () {
+        let login = (this.props.buttonText === "Login") ? (<button onClick={this.demoLogin}>Demo Login</button>) : null;
         return (
             <div className="session-form">
                 <div className="session-form-box">
@@ -68,8 +69,10 @@ class SessionForm extends React.Component {
                         <div className="session-form-navlink">
                             {this.props.navLink}
                         </div>
+                        {/* <div className="session-form-demologin"> */}
                         <div className="session-form-demologin">
-                            <button onClick={this.demoLogin}>Demo Login</button>
+                            {/* <button onClick={this.demoLogin}>Demo Login</button> */}
+                            {login}
                         </div>
                             {/* <img className="background" src="assets/bg.jpg"></img> */}
                     </div>

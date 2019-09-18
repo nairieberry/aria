@@ -25,9 +25,13 @@ export default () => (
         </div>
 
         <Switch>
-        <AuthRoute exact path="/" component={Splash} />
-        <AuthRoute path="/register" component={RegisterContainer} />
+        {/* <AuthRoute exact path="/" component={Splash} /> */}
+        {/* <AuthRoute path="/register" component={RegisterContainer} /> */}
         <AuthRoute path="/login" component={LoginContainer} />
+        <Route exact path="/" component={Splash} />
+        <Route path="/register" component={RegisterContainer} />
+        {/* <Route path="/login" component={LoginContainer} /> */}
+
         </Switch>
     </div>
 );
