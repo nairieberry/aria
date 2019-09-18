@@ -959,14 +959,35 @@ function (_React$Component) {
         channel: "ChatChannel"
       }, {
         received: function received(data) {
-          _this2.setState({
-            messages: _this2.state.messages.concat(data.message)
-          });
+          switch (data.type) {
+            case 'message':
+              _this2.setState({
+                messages: _this2.state.messages.concat(data.message)
+              });
+
+              break;
+
+            case 'messages':
+              _this2.setState({
+                messages: data.messages
+              });
+
+              break;
+          }
         },
         speak: function speak(data) {
           return this.perform("speak", data);
+        },
+        load: function load() {
+          return this.perform("load");
         }
       });
+    }
+  }, {
+    key: "loadChat",
+    value: function loadChat(e) {
+      e.preventDefault();
+      App.cable.subscriptions.subscriptions[0].load();
     }
   }, {
     key: "componentDidUpdate",
@@ -988,7 +1009,10 @@ function (_React$Component) {
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "load-button",
+        onClick: this.loadChat.bind(this)
+      }, "Load Chat History"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-message-list"
       }, messageList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messageform__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
@@ -1195,7 +1219,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "messageform"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
