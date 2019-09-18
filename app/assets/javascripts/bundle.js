@@ -722,7 +722,7 @@ function (_React$Component) {
         className: "channel-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-form-text"
-      }, "TEXT CHANNELS"), this.props.openModal, channels);
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TEXT CHANNELS"), "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.props.openModal), channels);
     }
   }]);
 
@@ -1629,7 +1629,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       onClick: function onClick() {
         return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])('server'));
       }
-    }, "+"),
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "+")),
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
     } // you only need the index function for the index page
