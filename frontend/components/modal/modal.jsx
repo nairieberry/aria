@@ -5,8 +5,9 @@ import ChannelIndexContainer from '../channel/channel_index_container';
 import ServerIndexContainer from '../server/server_index_container';
 
 import CreateChannelContainer from '../channel/channel_form';
+import {newChannel} from '../../actions/channel';
 
-function Modal({modal, closeModal}) {
+function Modal({modal, closeModal, newChannel, id}) {
 
     if (!modal) {
         return null;
@@ -18,7 +19,7 @@ function Modal({modal, closeModal}) {
             component = <CreateServerContainer />;
             break;
         case 'channel':
-            component = <CreateChannelContainer />;
+            component = <CreateChannelContainer newChannel={newChannel} id={id} />;
             break;
         default:
             return null;
@@ -36,13 +37,15 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
     return {
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        id: state.ui.currentServer,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        newChannel: (channel) => dispatch(newChannel(channel)),
     };
 };
 

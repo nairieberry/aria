@@ -15,12 +15,12 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     index: () => dispatch(channelIndex()),
     newChannel: (channel) => dispatch(newChannel(channel)),
     openModal: (
-        <button onClick={() => dispatch(openModal('channel'))}>
-            Create a new channel
+        <button className="channel-form-button" onClick={() => dispatch(openModal('channel', ownProps.match.params.serverId))}>
+            TEXT CHANNELS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{`+`}</span>
         </button>
     ),
     closeModal: () => dispatch(closeModal()),

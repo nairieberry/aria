@@ -5,8 +5,9 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            server_name: '',
+            channel_name: '',
             description: '',
+            server_id: this.props.id,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,13 +21,38 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const channel = Object.assign({}, this.state);
-        // this.props.?.then(this.props.closeModal);
+        // debugger
+        this.props.newChannel(channel).then(this.props.closeModal);
+    }
+
+    handleInput(type) {
+        return (e) => {
+            this.setState({ [type]: e.target.value });
+        };
     }
 
     render() {
         return (
             <div className="channel-form">
                 <div>hi</div>
+                <form>
+                    <label className="channel-form-field"><div className="channel-form-minibox">Channel Name</div>
+                        <input className="channel-form-field-box" type="text"
+                            value={this.state.channel_name}
+                            onChange={this.handleInput('channel_name')} />
+                    </label>
+                </form>
+                <form>
+                    <label className="channel-form-field"><div className="channel-form-minibox">Description</div>
+                        <input className="channel-form-field-box" type="text"
+                            value={this.state.description}
+                            onChange={this.handleInput('description')} />
+                    </label>
+                    <div className="channel-form-button">
+                        {/* <button onClick={this.handleSubmit}>{this.props.buttonText}</button> */}
+                        <button onClick={this.handleSubmit}>Create new channel</button>
+                    </div>
+                </form>
             </div>
         )
     }
