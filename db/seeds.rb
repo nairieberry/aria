@@ -20,6 +20,16 @@ ActiveRecord::Base.transaction do
         password: 'password',
     })
 
+    user2 = User.create!({
+        username: 'user2',
+        password: 'password',
+    })
+
+    user3 = User.create!({
+        username: 'user3',
+        password: 'password',
+    })
+
     server = Server.create!({
         server_name: 'server',
         description: 'this is a server',
@@ -29,13 +39,13 @@ ActiveRecord::Base.transaction do
     server2 = Server.create!({
         server_name: 'server2',
         description: 'this is a server 2',
-        owner_id: user.id,
+        owner_id: user2.id,
     })
 
     server3 = Server.create!({
         server_name: 'server3',
         description: 'this is a server 3',
-        owner_id: user.id,
+        owner_id: user3.id,
     })
 
     server4 = Server.create!({
@@ -47,7 +57,13 @@ ActiveRecord::Base.transaction do
     server5 = Server.create!({
         server_name: 'server5',
         description: 'this is a server 5',
-        owner_id: user.id,
+        owner_id: user2.id,
+    })
+
+    server6 = Server.create!({
+        server_name: 'server6',
+        description: 'this is a server 6',
+        owner_id: user3.id,
     })
 
     channel = Channel.create!({
@@ -60,14 +76,14 @@ ActiveRecord::Base.transaction do
     channel2 = Channel.create!({
         channel_name: 'channel2',
         description: 'this is a channel 2',
-        owner_id: user.id,
+        owner_id: user2.id,
         server_id: server.id,
     })
 
     channel3 = Channel.create!({
         channel_name: 'channel3',
         description: 'this is a channel 3',
-        owner_id: user.id,
+        owner_id: user3.id,
         server_id: server.id,
     })
 
@@ -75,14 +91,21 @@ ActiveRecord::Base.transaction do
         channel_name: 'channel4',
         description: 'this is a channel 4',
         owner_id: user.id,
-        server_id: server.id,
+        server_id: server2.id,
     })
 
     channel5 = Channel.create!({
         channel_name: 'channel5',
         description: 'this is a channel 5',
-        owner_id: user.id,
-        server_id: server.id,
+        owner_id: user2.id,
+        server_id: server2.id,
+    })
+
+    channel6 = Channel.create!({
+        channel_name: 'channel6',
+        description: 'this is a channel 6',
+        owner_id: user3.id,
+        server_id: server3.id,
     })
 
     Message.create!({
@@ -93,26 +116,32 @@ ActiveRecord::Base.transaction do
 
     Message.create!({
         body: 'this is a message 2',
-        user_id: user.id,
+        user_id: user2.id,
         channel_id: channel.id,
     })
 
     Message.create!({
         body: 'this is a message 3',
-        user_id: user.id,
+        user_id: user3.id,
         channel_id: channel.id,
     })
 
     Message.create!({
         body: 'this is a message 4',
         user_id: user.id,
-        channel_id: channel.id,
+        channel_id: channel2.id,
     })
 
     Message.create!({
         body: 'this is a message 5',
-        user_id: user.id,
-        channel_id: channel.id,
+        user_id: user2.id,
+        channel_id: channel2.id,
+    })
+
+    Message.create!({
+        body: 'this is a message 5',
+        user_id: user3.id,
+        channel_id: channel3.id,
     })
 
 end
