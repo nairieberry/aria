@@ -34,7 +34,8 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div className="channel-form">
-                <div>hi</div>
+                <div className="channel-form-banner">CREATE TEXT CHANNEL</div>
+                <div className="channel-form-banner2">in Text Channels</div>
                 <form>
                     <label className="channel-form-field"><div className="channel-form-minibox">Channel Name</div>
                         <input className="channel-form-field-box" type="text"
@@ -48,9 +49,9 @@ class SessionForm extends React.Component {
                             value={this.state.description}
                             onChange={this.handleInput('description')} />
                     </label>
-                    <div className="channel-form-button">
+                    <div className="channel-form-submit">
                         {/* <button onClick={this.handleSubmit}>{this.props.buttonText}</button> */}
-                        <button onClick={this.handleSubmit}>Create new channel</button>
+                        <button onClick={this.handleSubmit}>Create Channel</button>
                     </div>
                 </form>
             </div>

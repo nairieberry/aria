@@ -1,11 +1,78 @@
 .channel-form {
     color: #FFFFFF;
+    height: 470px;
+    width: 440px;
+    background: #36393F;
+    font-size: 16px;
+    font-family: $font;
+    border-radius: 5px;
 }
 
 .channel-form-button {
     color: #8E9297;
     // color: #FFFFFF;
+    // background-color: #7289DA;
     margin-top: 12px;
     font-size: 12px;
-    font-weight: 100px
+    font-weight: 100px;
+    padding-left: 20px;
+}
+
+.channel-form-banner {
+    font-weight: 500;
+    // text-align: center;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.channel-form-banner2 {
+    padding-left: 20px;
+    color: #B9BBBE;
+    font-size: 12px;
+    padding-top: 2px;
+    font-weight: 400;
+    padding-bottom: 160px;
+}
+
+.channel-form-field {
+}
+
+.channel-form-minibox {
+    padding-left: 21px;
+    font-size: 12px;
+    color: #8E9297;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.channel-form-field-box {
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-left: 21px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 16px;
+    width: 86%;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.channel-form-submit {
+    background-color: #7289da;
+    color: #FFFFFF;
+    width: 100px;
+    height: 34px;
+    align-items: center;
+    text-align: center;
+    padding-top: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 2px;
+    margin-left: 290px;
+    margin-top: 50px;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 34px;
+    font-weight: 400;
 }
