@@ -598,7 +598,7 @@ function (_React$Component) {
       e.preventDefault();
       var channel = Object.assign({}, this.state); // debugger
 
-      this.props.newChannel(channel).then(this.props.closeModal);
+      this.props.newChannel(channel).then(this.props.closeModal());
     }
   }, {
     key: "handleInput",
@@ -1050,7 +1050,8 @@ function Modal(_ref) {
     case 'channel':
       component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_channel_form__WEBPACK_IMPORTED_MODULE_5__["default"], {
         newChannel: newChannel,
-        id: id
+        id: id,
+        closeModal: closeModal
       });
       break;
 

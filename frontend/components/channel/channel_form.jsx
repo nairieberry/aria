@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const channel = Object.assign({}, this.state);
         // debugger
-        this.props.newChannel(channel).then(this.props.closeModal);
+        this.props.newChannel(channel).then(this.props.closeModal());
     }
 
     handleInput(type) {

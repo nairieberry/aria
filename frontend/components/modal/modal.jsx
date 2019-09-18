@@ -19,7 +19,7 @@ function Modal({modal, closeModal, newChannel, id}) {
             component = <CreateServerContainer />;
             break;
         case 'channel':
-            component = <CreateChannelContainer newChannel={newChannel} id={id} />;
+            component = <CreateChannelContainer newChannel={newChannel} id={id} closeModal={closeModal}/>;
             break;
         default:
             return null;
