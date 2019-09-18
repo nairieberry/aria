@@ -1656,7 +1656,8 @@ function (_React$Component) {
       username: '',
       password: ''
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.renderHeader = this.renderHeader.bind(this);
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.demoLogin = _this.demoLogin.bind(_assertThisInitialized(_this)); // this.renderHeader = this.renderHeader.bind(this);
 
     return _this;
   }
@@ -1674,7 +1675,17 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.action(this.state); // .then(() => this.props.history.push("/"));
+      this.props.action(this.state); // debugger
+      // .then(() => this.props.history.push("/"));
+    }
+  }, {
+    key: "demoLogin",
+    value: function demoLogin(e) {
+      e.preventDefault();
+      this.props.action({
+        username: "user",
+        password: "password"
+      });
     } // renderHeader() {
     //     if (this.props.buttonText === "Login")
     //         return <div className="">hi</div>
@@ -1717,7 +1728,11 @@ function (_React$Component) {
         onClick: this.handleSubmit
       }, this.props.buttonText))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-form-navlink"
-      }, this.props.navLink))));
+      }, this.props.navLink), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "session-form-demologin"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.demoLogin
+      }, "Demo Login")))));
     }
   }]);
 

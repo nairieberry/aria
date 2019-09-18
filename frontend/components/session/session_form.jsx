@@ -8,6 +8,7 @@ class SessionForm extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
         // this.renderHeader = this.renderHeader.bind(this);
     }
 
@@ -20,7 +21,13 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
+        // debugger
         // .then(() => this.props.history.push("/"));
+    }
+
+    demoLogin(e) {
+        e.preventDefault();
+        this.props.action({username: "user", password: "password"})
     }
 
     // renderHeader() {
@@ -60,6 +67,9 @@ class SessionForm extends React.Component {
                         </form>
                         <div className="session-form-navlink">
                             {this.props.navLink}
+                        </div>
+                        <div className="session-form-demologin">
+                            <button onClick={this.demoLogin}>Demo Login</button>
                         </div>
                             {/* <img className="background" src="assets/bg.jpg"></img> */}
                     </div>
