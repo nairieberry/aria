@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageForm from '?';
+import MessageForm from './messageform';
 
 class ChatRoom extends React.Component {
     constructor(props) {
