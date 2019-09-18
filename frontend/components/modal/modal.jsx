@@ -5,9 +5,11 @@ import ChannelIndexContainer from '../channel/channel_index_container';
 import ServerIndexContainer from '../server/server_index_container';
 
 import CreateChannelContainer from '../channel/channel_form';
+import CreateServerContainer from '../server/server_form';
 import {newChannel} from '../../actions/channel';
+import {newServer} from '../../actions/server';
 
-function Modal({modal, closeModal, newChannel, id}) {
+function Modal({modal, closeModal, newChannel, id, newServer}) {
 
     if (!modal) {
         return null;
@@ -16,10 +18,10 @@ function Modal({modal, closeModal, newChannel, id}) {
     let component;
     switch (modal) {
         case 'server':
-            component = <CreateServerContainer />;
+            component = <CreateServerContainer newServer={newServer} closeModal={closeModal} />;
             break;
         case 'channel':
-            component = <CreateChannelContainer newChannel={newChannel} id={id} closeModal={closeModal}/>;
+            component = <CreateChannelContainer newChannel={newChannel} id={id} closeModal={closeModal} />;
             break;
         default:
             return null;
@@ -46,6 +48,7 @@ const mapDispatchToProps = dispatch => {
     return {
         closeModal: () => dispatch(closeModal()),
         newChannel: (channel) => dispatch(newChannel(channel)),
+        newServer: (server) => dispatch(newServer(server)),
     };
 };
 
