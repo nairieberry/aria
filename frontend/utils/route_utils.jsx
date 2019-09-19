@@ -6,15 +6,16 @@ const mapStateToProps = state => {
     return {loggedIn: Boolean(state.session.id)}
 };
 
-const Auth = ({loggedIn, path, component: Component}) => (
-    <Route 
-        path={path}
-        render={props => (
-            loggedIn ? <Redirect to="/channels" /> : <Component {...props} />
-            // the first one should be where you want them to be sent if they are logged in
-        )}
-    />
-);
+const Auth = ({loggedIn, path, component: Component}) => {
+    // debugger
+    return (<Route 
+            path={path}
+            render={props => (
+                loggedIn ? <Redirect to="/channels" /> : <Component {...props} />
+                // the first one should be where you want them to be sent if they are logged in
+                )}
+            />)
+    };
 
 const Protected = ({loggedIn, path, component: Component}) => (
     <Route
