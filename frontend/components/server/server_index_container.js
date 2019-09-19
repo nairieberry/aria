@@ -23,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
     newServer: (server) => dispatch(newServer(server)),
     openModal: (
         <button className="server-form-button" onClick={() => dispatch
-        (openModal('server'))}><b>+</b></button>
+        (openModal('server'))}><div className="server-form-button-add">+</div></button>
     ),
     closeModal: () => dispatch(closeModal()),
     // you only need the index function for the index page
