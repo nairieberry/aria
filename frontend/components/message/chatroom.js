@@ -4,9 +4,11 @@ import {connect} from 'react-redux';
 import {messageIndex, receiveCurrentMessage} from '../../actions/message'
 
 const mapStateToProps = (state, ownProps) => {
+    // debugger
     return{
         userId: state.session.id,
         messages: Object.values(state.entities.messages),
+        username: state.entities.users[state.session.id].username,
     };
 };
 
@@ -73,10 +75,11 @@ class ChatRoom extends React.Component {
     }
 
     render() {
+        // debugger
         const messageList = this.props.messages.map(message => {
             return (
                 <div className="chatroom-message" key={message.id}>
-                    {message.body}
+                    {this.props.username}: {message.body}
                     <div ref={this.bottom} />
                 </div>
             );

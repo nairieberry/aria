@@ -5,6 +5,7 @@ import {serverIndex} from '../../actions/message'
 class MessageForm extends React.Component {
     constructor(props) {
         super(props);
+        // debugger
         this.state = {body: ""};
         // this.state.handleSubmit
     }
@@ -22,6 +23,7 @@ class MessageForm extends React.Component {
     }
 
     render() {
+        // debugger
         return (
             <div className="messageform">
                 <form onSubmit={this.handleSubmit.bind(this)}>

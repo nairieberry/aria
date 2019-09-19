@@ -937,9 +937,11 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  // debugger
   return {
     userId: state.session.id,
-    messages: Object.values(state.entities.messages)
+    messages: Object.values(state.entities.messages),
+    username: state.entities.users[state.session.id].username
   };
 };
 
@@ -1035,11 +1037,12 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      // debugger
       var messageList = this.props.messages.map(function (message) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chatroom-message",
           key: message.id
-        }, message.body, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, _this3.props.username, ": ", message.body, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
       });
@@ -1233,7 +1236,8 @@ function (_React$Component) {
 
     _classCallCheck(this, MessageForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MessageForm).call(this, props)); // debugger
+
     _this.state = {
       body: ""
     }; // this.state.handleSubmit
@@ -1267,6 +1271,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "messageform"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
