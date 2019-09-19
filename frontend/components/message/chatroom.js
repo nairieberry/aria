@@ -89,6 +89,7 @@ class ChatRoom extends React.Component {
         return (
             <div className="chatroom-background">
                 <div className="chatroom-container">
+                    {/* <div className="chatroom-message-top">Welcome to chat!</div> */}
                     {/* <div>ChatRoom</div> */}
                     {/* <button className="load-button" onClick={this.loadChat.bind(this)}>Load Chat History</button> */}
                     <div className="chatroom-message-list">{messageList}</div>
