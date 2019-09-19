@@ -30,6 +30,7 @@ class ChatRoom extends React.Component {
 
     componentDidMount() {
         // this.props.index
+        // debugger
         this.props.messageIndex();
         let receiveMessage = this.props.receiveMessage
         App.cable.subscriptions.create(
