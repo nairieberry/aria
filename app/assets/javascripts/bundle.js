@@ -735,8 +735,9 @@ function (_React$Component) {
       }, channels), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-index-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "channel-index-2-button",
         onClick: this.handleLogout
-      }, "LOG OUT")));
+      }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
     }
   }]);
 

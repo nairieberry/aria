@@ -35,7 +35,7 @@ class ChannelIndex extends React.Component {
                     {channels}
                 </div>
                 <div className="channel-index-2">
-                    <button onClick={this.handleLogout}>LOG OUT</button>
+                    <button className="channel-index-2-button" onClick={this.handleLogout}>ログアウト</button>
                 </div>
             </div>
         )
