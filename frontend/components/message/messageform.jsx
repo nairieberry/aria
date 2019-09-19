@@ -1,10 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {serverIndex} from '../../actions/message'
 
 class MessageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {body: ""};
+        // this.state.handleSubmit
     }
 
     update(field) {
@@ -14,7 +16,8 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        App.cable.subscriptions.subscriptions[0].speak({message: this.state.body});
+        // debugger
+        App.cable.subscriptions.subscriptions[0].speak({body: this.state.body, channel_id: this.props.channelId, user_id: this.props.userId});
         this.setState({body: ""});
     }
 

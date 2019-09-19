@@ -139,7 +139,7 @@ ActiveRecord::Base.transaction do
     })
 
     Message.create!({
-        body: 'this is a message 5',
+        body: 'this is a message 6',
         user_id: user3.id,
         channel_id: channel3.id,
     })

@@ -5,12 +5,12 @@ class Api::MessagesController < ApplicationController
     end
 
     def create
-        @messages = Message.new(messages_params)
-        @messages.owner_id = current_user.id
-        if @server.save
+        @message = Message.new(messages_params)
+        @message.owner_id = current_user.id
+        if @message.save!
             render :show
         else
-            render json: @messages.errors.full_messages, status: 422
+            render json: @message.errors.full_messages, status: 422
         end
     end
 
@@ -31,7 +31,7 @@ class Api::MessagesController < ApplicationController
     end
 
     def messages_params
-        params.require(:messages).permit(:body)
+        params.permit(:body, :channel_id)
     end
 
 end

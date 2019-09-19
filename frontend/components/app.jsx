@@ -22,7 +22,7 @@ export default () => (
             {/* <ProtectedRoute path="/channels/:serverId" component={ServerShowContainer} /> */}
             <ProtectedRoute path="/channels/:serverId" component={ChannelIndexContainer} />
             {/* <ProtectedRoute path="/channels/:serverId/:channelId" component={ChannelShowContainer} /> */}
-            <ProtectedRoute path="/channels/:serverId" component={ChatRoom} />
+            <ProtectedRoute path="/channels/:serverId/:channelId" component={ChatRoom} />
             <ProtectedRoute path="/channels/:serverId/:channelId" component={MessageIndexContainer} />
         </div>
 

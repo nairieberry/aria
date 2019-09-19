@@ -1,36 +1,49 @@
 import React from 'react';
 import MessageForm from './messageform';
 import {connect} from 'react-redux';
+import {messageIndex, receiveCurrentMessage} from '../../actions/message'
 
 const mapStateToProps = (state, ownProps) => {
-    let channelId = ownProps.match.params.channelId
-    let messages = Object.values(state.entities.messages).filter(message => message.channel_id == channelId)
     return{
-        messages: messages,
-        users: state.entities.users,
+        userId: state.session.id,
+        messages: Object.values(state.entities.messages),
     };
 };
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return({
+        messageIndex: () => dispatch(messageIndex()),
+        receiveMessage: (message) => dispatch(receiveCurrentMessage(message)),
+    })
+}
 
 class ChatRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {messages: []};
         this.bottom = React.createRef();
+        // debugger
+        // this.props.receiveCurrentMessage = this.props.receiveCurrentMessage.bind(this);
     }
 
     componentDidMount() {
         // this.props.index
+        this.props.messageIndex();
+        let receiveMessage = this.props.receiveMessage
         App.cable.subscriptions.create(
             {channel: "ChatChannel"},
+            // add more channels here later
             {
                 received: data => {
                     switch (data.type) {
                         case 'message':
+                            // debugger
                             this.setState({
                                 messages: this.state.messages.concat(data.message)
                             });
                             break;
                         case 'messages':
+                            // debugger
                             this.setState({messages: data.messages});
                             break;
                     }    
@@ -38,7 +51,11 @@ class ChatRoom extends React.Component {
                 speak: function(data) {
                     return this.perform("speak", data);
                 },
-                load: function() {return this.perform("load")}
+                load: function() {return this.perform("load")},
+                received: function(data) {
+                    debugger
+                    receiveMessage(data);
+                }
             }
         );
     }
@@ -49,14 +66,17 @@ class ChatRoom extends React.Component {
     }
 
     componentDidUpdate() {
-        this.bottom.current.scrollIntoView();
+        if (this.bottom.current) {
+            this.bottom.current.scrollIntoView();
+        }
+        // debugger
     }
 
     render() {
-        const messageList = this.state.messages.map(message => {
+        const messageList = this.props.messages.map(message => {
             return (
                 <div className="chatroom-message" key={message.id}>
-                    {message}
+                    {message.body}
                     <div ref={this.bottom} />
                 </div>
             );
@@ -70,10 +90,10 @@ class ChatRoom extends React.Component {
                         Load Chat History
                     </button>
                 <div className="chatroom-message-list">{messageList}</div>
-                <MessageForm />
+                <MessageForm channelId={Number(this.props.match.params.channelId)} userId={Number(this.props.userId)} />
             </div>
         );
     }
 }
 
-export default ChatRoom;
+export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom);

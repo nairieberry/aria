@@ -11,7 +11,7 @@ const receiveAllMessages = ({messages, users}) => ({
     users,
 });
 
-const receiveCurrentMessage = message => ({
+export const receiveCurrentMessage = message => ({
     type: RECEIVE_CURRENT_MESSAGE,
     message
 });
