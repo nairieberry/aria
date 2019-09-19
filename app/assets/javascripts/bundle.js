@@ -676,9 +676,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -692,16 +692,26 @@ var ChannelIndex =
 function (_React$Component) {
   _inherits(ChannelIndex, _React$Component);
 
-  function ChannelIndex() {
+  function ChannelIndex(props) {
+    var _this;
+
     _classCallCheck(this, ChannelIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelIndex).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelIndex).call(this, props));
+    _this.handleLogout = _this.handleLogout.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ChannelIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.index();
+    }
+  }, {
+    key: "handleLogout",
+    value: function handleLogout(e) {
+      e.preventDefault();
+      this.props.logout();
     }
   }, {
     key: "render",
@@ -717,10 +727,16 @@ function (_React$Component) {
       // debugger
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "channel-index"
+        className: "channel-index-outer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-form-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TEXT CHANNELS"), "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.props.openModal), channels);
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "TEXT CHANNELS"), "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.props.openModal), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-index"
+      }, channels), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-index-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleLogout
+      }, "LOG OUT")));
     }
   }]);
 
@@ -747,6 +763,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _actions_channel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/channel */ "./frontend/actions/channel.js");
 /* harmony import */ var _channel_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./channel_index */ "./frontend/components/channel/channel_index.jsx");
+/* harmony import */ var _actions_session__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/session */ "./frontend/actions/session.js");
+
 
 
 
@@ -782,6 +800,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     }, "+"),
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
+    },
+    logout: function logout() {
+      return dispatch(Object(_actions_session__WEBPACK_IMPORTED_MODULE_6__["logout"])());
     }
   };
 };

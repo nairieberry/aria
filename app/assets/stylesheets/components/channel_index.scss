@@ -1,10 +1,20 @@
-.channel-index {
+.channel-index-outer {
     font-family: $font;
     display: flex;
     flex-direction: column;
     background: #2F3136;
     width: 240px;
     height: 100vh;
+    align-items: center;
+}
+
+.channel-index {
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    background: #2F3136;
+    width: 240px;
+    height: 84vh;
     align-items: center;
     // align-items: left;
     overflow: scroll;
@@ -24,4 +34,17 @@
         // align-items: left;
         color: #FFFFFF;
     }
+}
+
+.channel-form-text {
+height: 6vh;
+}
+
+.channel-index-2 {
+    background-color: #43b581;
+    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 3px;
+    width: 170px;
+    margin: 20px;
 }

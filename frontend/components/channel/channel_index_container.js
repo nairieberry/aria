@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {openModal, closeModal} from '../../actions/modal_actions';
 import {channelIndex, newChannel} from '../../actions/channel';
 import ChannelIndex from './channel_index';
+import {logout} from '../../actions/session';
 
 const mapStateToProps = (state, ownProps) => {
     let serverId = ownProps.match.params.serverId
@@ -25,6 +26,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         </button>
     ),
     closeModal: () => dispatch(closeModal()),
+    logout: () => dispatch(logout()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelIndex);

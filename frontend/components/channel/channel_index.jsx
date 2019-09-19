@@ -2,9 +2,19 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ChannelIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
     componentDidMount() {
         this.props.index()
     };
+
+    handleLogout(e) {
+        e.preventDefault();
+        this.props.logout();
+    }
 
     render () {
         let channels = this.props.channels.map(channel => (
@@ -15,11 +25,18 @@ class ChannelIndex extends React.Component {
         // ))
         // debugger
         return (
-            <div className="channel-index">
-                {/* {this.props.server_name} */}
-                <div className="channel-form-text"><b>TEXT CHANNELS</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.openModal}</div>
-                {/* <div onClick={this.props.closeModal}>close modal</div> */}
-                {channels}
+            <div className="channel-index-outer">
+                <div className="channel-form-text">
+                    <b>TEXT CHANNELS</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.openModal}
+                </div>
+                <div className="channel-index">
+                    {/* {this.props.server_name} */}
+                    {/* <div onClick={this.props.closeModal}>close modal</div> */}
+                    {channels}
+                </div>
+                <div className="channel-index-2">
+                    <button onClick={this.handleLogout}>LOG OUT</button>
+                </div>
             </div>
         )
     }
