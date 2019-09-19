@@ -1,4 +1,5 @@
 .channel-index {
+    font-family: $font;
     display: flex;
     flex-direction: column;
     background: #2F3136;
@@ -15,7 +16,7 @@
         background: #2F3136;
         border-radius: 10px;
         font-size: 16px;
-        font-weight: 100;
+        // font-weight: 400;
         margin-top: 16px;
         line-height: 16px;
         text-align: center;

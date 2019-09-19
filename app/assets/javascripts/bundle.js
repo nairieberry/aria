@@ -1043,7 +1043,11 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chatroom-message",
           key: message.id
-        }, _this3.props.username, ": ", message.body, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "chatroom-username"
+        }, _this3.props.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "chatroom-message-body"
+        }, message.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
       });

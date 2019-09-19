@@ -40,8 +40,22 @@
 }
 
 .chatroom-message-list {
-    padding-left: 20px;
+    // padding-left: 20px;
     // overflow-y: scroll;
+}
+
+.chatroom-username {
+    font-family: $font;
+    // font-weight: 500;
+    border-top: 1px solid #42454A;
+    padding-top: 5px;
+    color: #8E89C7;
+    padding-bottom: 3px;
+}
+
+.chatroom-message-body{
+    padding-bottom: 7px;
+    // font-weight: 400;
 }
 
 .messageform {
