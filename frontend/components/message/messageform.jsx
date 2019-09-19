@@ -26,6 +26,7 @@ class MessageForm extends React.Component {
             <div className="messageform">
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input
+                        className="messageform-submit"
                         type="text"
                         value={this.state.body}
                         onChange={this.update("body")}

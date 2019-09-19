@@ -1044,13 +1044,17 @@ function (_React$Component) {
         }));
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chatroom-background"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-message-list"
-      }, messageList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messageform__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, messageList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "chatroom-spacing"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messageform__WEBPACK_IMPORTED_MODULE_1__["default"], {
         channelId: Number(this.props.match.params.channelId),
         userId: Number(this.props.userId)
-      }));
+      })));
     }
   }]);
 
@@ -1268,6 +1272,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit.bind(this)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "messageform-submit",
         type: "text",
         value: this.state.body,
         onChange: this.update("body"),
