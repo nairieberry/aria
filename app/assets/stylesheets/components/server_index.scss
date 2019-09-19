@@ -6,14 +6,15 @@
     height: 100vh;
     align-items: center;
     overflow: scroll;
-    // font-family: $font;
+    font-family: $font;
     
     a {
+        // font-family: $font;
         width: 60px;
         height: 60px;
         border: 1px;
         background: #36393F;
-        font-size: 40px;
+        font-size: 20px;
         font-weight: 600;
         margin-top: 8px;
         margin-left: 8px;
@@ -30,7 +31,6 @@
     height: 60px;
     border: 1px;
     background: #36393F;
-    font-size: 50px;
     font-weight: 600;
     margin-top: 8px;
     margin-left: 8px;
@@ -42,7 +42,8 @@
 }
 
 .server-form-button-add {
-    // margin-right: 1px;
+    font-size: 50px;
+    margin-right: 1px;
     position: relative;
-    top: -3px;
+    top: -5px;
 }

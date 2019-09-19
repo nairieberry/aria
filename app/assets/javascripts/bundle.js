@@ -1648,8 +1648,9 @@ function (_React$Component) {
           // <Link key={server.id} to={`/channels/${server.id}`}>{server.server_name.slice(0, 2).toUpperCase()}</Link>
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
             key: server.id,
-            to: "/channels/".concat(server.id, "/1")
-          }, server.server_name.slice(0, 1).toUpperCase(), server.id)
+            to: "/channels/".concat(server.id)
+          }, "S", server.id) // <Link key={server.id} to={`/channels/${server.id}/1`}>{server.server_name.slice(0, 1).toUpperCase()}{server.id}</Link>
+
         );
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
