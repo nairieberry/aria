@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     return{
         userId: state.session.id,
         messages: Object.values(state.entities.messages),
-        username: state.entities.users[state.session.id].username,
+        // username: state.entities.users[state.session.id].username,
+        users: state.entities.users,
     };
 };
 
@@ -76,11 +77,14 @@ class ChatRoom extends React.Component {
     }
 
     render() {
+        let users = this.props.users
         // debugger
         const messageList = this.props.messages.map(message => {
+            // debugger
             return (
                 <div className="chatroom-message" key={message.id}>
-                    <div className="chatroom-username">{this.props.username}</div><div className="chatroom-message-body">{message.body}</div>
+                    {/* <div className="chatroom-username">{this.props.username}</div><div className="chatroom-message-body">{message.body}</div> */}
+                    <div className="chatroom-username">{users[message.user_id].username}</div><div className="chatroom-message-body">{message.body}</div>
                     <div ref={this.bottom} />
                 </div>
             );

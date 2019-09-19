@@ -963,7 +963,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     userId: state.session.id,
     messages: Object.values(state.entities.messages),
-    username: state.entities.users[state.session.id].username
+    // username: state.entities.users[state.session.id].username,
+    users: state.entities.users
   };
 };
 
@@ -1060,14 +1061,16 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // debugger
+      var users = this.props.users; // debugger
+
       var messageList = this.props.messages.map(function (message) {
+        // debugger
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chatroom-message",
           key: message.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chatroom-username"
-        }, _this3.props.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, users[message.user_id].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "chatroom-message-body"
         }, message.body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
@@ -1300,6 +1303,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // let users = this.props.users
       // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "messageform"
@@ -1922,7 +1926,7 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     action: function action(user) {
-      return dispatch(Object(_actions_session__WEBPACK_IMPORTED_MODULE_3__["register"])(user));
+      dispatch(Object(_actions_session__WEBPACK_IMPORTED_MODULE_3__["register"])(user)); // dispatch(login(user))
     }
   };
 };
