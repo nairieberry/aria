@@ -1015,7 +1015,7 @@ function (_React$Component) {
           return this.perform("load");
         }
       }, "received", function received(data) {
-        debugger;
+        // debugger
         receiveMessage(data);
       }));
     }
@@ -2264,7 +2264,8 @@ var messagesReducer = function messagesReducer() {
 
     case _actions_message__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_MESSAGE"]:
       // debugger
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.message);
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state);
+      newState[action.message.message.id] = action.message.message;
       return newState;
 
     case _actions_message__WEBPACK_IMPORTED_MODULE_1__["DELETE_CURRENT_MESSAGE"]:

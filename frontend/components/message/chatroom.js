@@ -53,7 +53,7 @@ class ChatRoom extends React.Component {
                 },
                 load: function() {return this.perform("load")},
                 received: function(data) {
-                    debugger
+                    // debugger
                     receiveMessage(data);
                 }
             }

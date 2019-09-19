@@ -13,7 +13,8 @@ const messagesReducer = (state = {}, action) => {
             return action.messages
         case RECEIVE_CURRENT_MESSAGE:
             // debugger
-            const newState = merge({}, state, action.message)
+            const newState = merge({}, state)
+            newState[action.message.message.id] = action.message.message
             return newState;
         case DELETE_CURRENT_MESSAGE:
             return _nullMessage
