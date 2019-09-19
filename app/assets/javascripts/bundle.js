@@ -1045,10 +1045,7 @@ function (_React$Component) {
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "load-button",
-        onClick: this.loadChat.bind(this)
-      }, "Load Chat History"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-message-list"
       }, messageList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messageform__WEBPACK_IMPORTED_MODULE_1__["default"], {
         channelId: Number(this.props.match.params.channelId),
@@ -1274,9 +1271,10 @@ function (_React$Component) {
         type: "text",
         value: this.state.body,
         onChange: this.update("body"),
-        placeholder: "Type message here"
+        placeholder: "Message"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit"
+        type: "submit",
+        value: ""
       })));
     }
   }]);

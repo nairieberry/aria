@@ -84,11 +84,8 @@ class ChatRoom extends React.Component {
 
         return (
             <div className="chatroom-container">
-                <div>ChatRoom</div>
-                <button className="load-button"
-                    onClick={this.loadChat.bind(this)}>
-                        Load Chat History
-                    </button>
+                {/* <div>ChatRoom</div> */}
+                {/* <button className="load-button" onClick={this.loadChat.bind(this)}>Load Chat History</button> */}
                 <div className="chatroom-message-list">{messageList}</div>
                 <MessageForm channelId={Number(this.props.match.params.channelId)} userId={Number(this.props.userId)} />
             </div>
