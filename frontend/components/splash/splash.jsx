@@ -15,10 +15,10 @@ const Splash = ({user, logout}) => {
 
                 <div className="splash-button-box">
                     <div className="splash-green-button-box">
-                        <Link className="splash-button" to="/">Download for macOS</Link>
+                        <Link className="splash-button" to="/register">Download for macOS</Link>
                     </div>
                     <div className="splash-blue-button-box">
-                        <Link className="splash-button" to="/">Open Discord in your browser</Link>
+                        <Link className="splash-button" to="/register">Open Discord in your browser</Link>
                     </div>
                 </div>
             </div>
