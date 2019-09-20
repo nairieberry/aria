@@ -2,6 +2,7 @@ import React from 'react';
 import MessageForm from './messageform';
 import {connect} from 'react-redux';
 import {messageIndex, receiveCurrentMessage} from '../../actions/message'
+import {fetchUser} from '../../actions/user'
 
 const mapStateToProps = (state, ownProps) => {
     // debugger
@@ -17,6 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return({
         messageIndex: () => dispatch(messageIndex()),
         receiveMessage: (message) => dispatch(receiveCurrentMessage(message)),
+        getUser: (userId) => dispatch(fetchUser(userId)),
     })
 }
 
@@ -34,11 +36,13 @@ class ChatRoom extends React.Component {
         // debugger
         this.props.messageIndex();
         let receiveMessage = this.props.receiveMessage
+        let getUser = this.props.getUser
         App.cable.subscriptions.create(
             {channel: "ChatChannel"},
             // add more channels here later
             {
                 received: data => {
+                    // debugger
                     switch (data.type) {
                         case 'message':
                             // debugger
@@ -58,7 +62,8 @@ class ChatRoom extends React.Component {
                 load: function() {return this.perform("load")},
                 received: function(data) {
                     // debugger
-                    receiveMessage(data);
+                    getUser(data.message.user_id).then(() => receiveMessage(data));
+                    // receiveMessage(data);
                 }
             }
         );
@@ -73,6 +78,7 @@ class ChatRoom extends React.Component {
         if (this.bottom.current) {
             this.bottom.current.scrollIntoView();
         }
+        // console.log("update")
         // debugger
     }
 

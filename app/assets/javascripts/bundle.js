@@ -405,6 +405,38 @@ var logout = function logout() {
 
 /***/ }),
 
+/***/ "./frontend/actions/user.js":
+/*!**********************************!*\
+  !*** ./frontend/actions/user.js ***!
+  \**********************************/
+/*! exports provided: RECEIVE_USER, fetchUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USER", function() { return RECEIVE_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony import */ var _utils_session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/session */ "./frontend/utils/session.js");
+
+var RECEIVE_USER = "RECEIVE_USER";
+
+var receiveUser = function receiveUser(user) {
+  return {
+    type: RECEIVE_USER,
+    user: user
+  };
+};
+
+var fetchUser = function fetchUser(userId) {
+  return function (dispatch) {
+    return Object(_utils_session__WEBPACK_IMPORTED_MODULE_0__["getUser"])(userId).then(function (user) {
+      return dispatch(receiveUser(user));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/aria.jsx":
 /*!***************************!*\
   !*** ./frontend/aria.jsx ***!
@@ -933,6 +965,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _messageform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./messageform */ "./frontend/components/message/messageform.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/message */ "./frontend/actions/message.js");
+/* harmony import */ var _actions_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user */ "./frontend/actions/user.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -958,6 +991,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   // debugger
   return {
@@ -975,6 +1009,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
     },
     receiveMessage: function receiveMessage(message) {
       return dispatch(Object(_actions_message__WEBPACK_IMPORTED_MODULE_3__["receiveCurrentMessage"])(message));
+    },
+    getUser: function getUser(userId) {
+      return dispatch(Object(_actions_user__WEBPACK_IMPORTED_MODULE_4__["fetchUser"])(userId));
     }
   };
 };
@@ -1008,11 +1045,13 @@ function (_React$Component) {
       // debugger
       this.props.messageIndex();
       var receiveMessage = this.props.receiveMessage;
+      var getUser = this.props.getUser;
       App.cable.subscriptions.create({
         channel: "ChatChannel"
       }, // add more channels here later
       _defineProperty({
         received: function received(data) {
+          // debugger
           switch (data.type) {
             case 'message':
               // debugger
@@ -1039,7 +1078,9 @@ function (_React$Component) {
         }
       }, "received", function received(data) {
         // debugger
-        receiveMessage(data);
+        getUser(data.message.user_id).then(function () {
+          return receiveMessage(data);
+        }); // receiveMessage(data);
       }));
     }
   }, {
@@ -1053,7 +1094,8 @@ function (_React$Component) {
     value: function componentDidUpdate() {
       if (this.bottom.current) {
         this.bottom.current.scrollIntoView();
-      } // debugger
+      } // console.log("update")
+      // debugger
 
     }
   }, {
@@ -2489,7 +2531,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session */ "./frontend/actions/session.js");
 /* harmony import */ var _actions_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/message */ "./frontend/actions/message.js");
+/* harmony import */ var _actions_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user */ "./frontend/actions/user.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2506,6 +2550,10 @@ var usersReducer = function usersReducer() {
     case _actions_message__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_MESSAGES"]:
       // debugger
       return Object.assign({}, state, action.users);
+
+    case _actions_user__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_USER"]:
+      // debugger
+      return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
 
     default:
       return state;
@@ -2753,7 +2801,7 @@ var deleteServer = function deleteServer() {
 /*!***********************************!*\
   !*** ./frontend/utils/session.js ***!
   \***********************************/
-/*! exports provided: postUser, postSession, deleteSession */
+/*! exports provided: postUser, postSession, deleteSession, getUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2761,6 +2809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postUser", function() { return postUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "postSession", function() { return postSession; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSession", function() { return deleteSession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
 var postUser = function postUser(user) {
   return $.ajax({
     url: '/api/users',
@@ -2783,6 +2832,13 @@ var deleteSession = function deleteSession() {
   return $.ajax({
     url: '/api/session',
     method: 'DELETE'
+  });
+};
+var getUser = function getUser(userId) {
+  // debugger
+  return $.ajax({
+    url: "/api/users/".concat(userId),
+    method: 'GET'
   });
 };
 
