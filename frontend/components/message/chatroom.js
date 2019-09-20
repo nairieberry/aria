@@ -1,21 +1,21 @@
 import React from 'react';
 import MessageForm from './messageform';
-import {connect} from 'react-redux';
-import {messageIndex, receiveCurrentMessage} from '../../actions/message'
-import {fetchUser} from '../../actions/user'
+import { connect } from 'react-redux';
+import { messageIndex, receiveCurrentMessage } from '../../actions/message'
+import { fetchUser } from '../../actions/user'
 
 const mapStateToProps = (state, ownProps) => {
     // debugger
-    return{
+    return {
         userId: state.session.id,
-        messages: Object.values(state.entities.messages),
+        messages: Object.values(state.entities.messages).filter(message => (message.channel_id === Number(ownProps.match.params.channelId))),
         // username: state.entities.users[state.session.id].username,
         users: state.entities.users,
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return({
+    return ({
         messageIndex: () => dispatch(messageIndex()),
         receiveMessage: (message) => dispatch(receiveCurrentMessage(message)),
         getUser: (userId) => dispatch(fetchUser(userId)),
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class ChatRoom extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {messages: []};
+        this.state = { messages: [] };
         this.bottom = React.createRef();
         // debugger
         // this.props.receiveCurrentMessage = this.props.receiveCurrentMessage.bind(this);
@@ -38,7 +38,7 @@ class ChatRoom extends React.Component {
         let receiveMessage = this.props.receiveMessage
         let getUser = this.props.getUser
         App.cable.subscriptions.create(
-            {channel: "ChatChannel"},
+            { channel: "ChatChannel" },
             // add more channels here later
             {
                 received: data => {
@@ -52,15 +52,15 @@ class ChatRoom extends React.Component {
                             break;
                         case 'messages':
                             // debugger
-                            this.setState({messages: data.messages});
+                            this.setState({ messages: data.messages });
                             break;
-                    }    
+                    }
                 },
-                speak: function(data) {
+                speak: function (data) {
                     return this.perform("speak", data);
                 },
-                load: function() {return this.perform("load")},
-                received: function(data) {
+                load: function () { return this.perform("load") },
+                received: function (data) {
                     // debugger
                     getUser(data.message.user_id).then(() => receiveMessage(data));
                     // receiveMessage(data);
