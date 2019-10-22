@@ -769,7 +769,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-index-2-button",
         onClick: this.handleLogout
-      }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
+      }, "Log Out")));
     }
   }]);
 
@@ -2719,7 +2719,7 @@ var Auth = function Auth(_ref) {
     path: path,
     render: function render(props) {
       return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/channels"
+        to: "/channels/1/1"
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) // the first one should be where you want them to be sent if they are logged in
       ;
     }

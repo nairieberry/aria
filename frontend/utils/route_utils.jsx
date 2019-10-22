@@ -11,7 +11,7 @@ const Auth = ({loggedIn, path, component: Component}) => {
     return (<Route 
             path={path}
             render={props => (
-                loggedIn ? <Redirect to="/channels" /> : <Component {...props} />
+                loggedIn ? <Redirect to="/channels/1/1" /> : <Component {...props} />
                 // the first one should be where you want them to be sent if they are logged in
                 )}
             />)
